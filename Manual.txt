@@ -1,0 +1,1166 @@
+---
+
+# Copyright and Disclaimer
+
+All contents of this manual are copyrighted by TZTEK Precision Co., Ltd., hereafter referred to as TZTEK, and are protected by PRC law. Without the written permission of TZTEK, no individual or entity may reproduce or transmit any part of this manual by any means or form.
+
+TZTEK reserves the right to interpret the contents of this manual and retains the right to make changes to the product specifications and contents of this manual without notice.
+
+TZTEK strives to maintain the accuracy of the contents of this manual but does not guarantee that all contents are correct. TZTEK does not assume any responsibility for any consequences of damage caused by using this manual, including but not limited to layout and other errors.
+
+This product has a one-year warranty, which includes free repair services during the warranty period. However, if the failure results from improper operation or self-handling by the user, or from actions beyond human control, it will not be covered under the warranty.
+
+This manual may involve patents (or pending patents), trademarks, copyrights, or other intellectual property rights of TZTEK. Unless a written permission agreement is obtained from TZTEK, this manual does not grant you any license agreement to use these patents, trademarks, copyrights, or other intellectual property rights.
+
+Other products or company names mentioned in this manual may be trademarks of their respective owners.
+
+© TZTEK Precision Co., Ltd. All rights reserved
+
+Address: NO.5, Peiyuan Road, Science & Technology Town, New District, Suzhou, China, 215163
+
+TEL: 86-0512-62397401
+
+FAX: 86-0512-62390358
+
+Email: support@tztek.com
+
+Website: [http://www.tztek.com](http://www.tztek.com)
+
+---
+
+# Foreword
+
+Welcome to the use of the TZTEK VM series automatic image measuring instrument!
+
+This manual describes information related to the use of the TZTEK VM series automatic image measuring instrument. By reading this manual, you will understand the basic structure of the VM series and the correct usage steps and measurement methods.
+
+To quickly master the basic usage methods of this product, please directly read Chapter 3 "Usage Process", Chapter 4 "Software Function Description", and Chapter 6 "Software Enhancement Function Description".
+
+We hope this manual helps you quickly master the operation of the instrument, enjoy the convenience and speed of the TZTEK image measuring instrument, reduce your workload, and improve the efficiency of quality management.
+
+---
+
+# Precautions
+
+To ensure the safe and effective use of the VM series automatic image measuring instrument, please read this manual patiently before operation and pay attention to the following points:
+
+### Safety Precautions
+
+#### Transportation Safety
+- During transportation and handling, avoid external impact, squeezing, and vibration of this product.
+- Ensure the product is always in a horizontal state during transportation and handling, do not tilt, place sideways, or invert.
+- The measurement lens is a precision component, although protected by an outer casing, still handle with care to avoid squeezing and vibration.
+- Due to the heavy weight of the product base, handle it carefully to prevent unnecessary personal injury and product damage.
+- TZTEK assumes no responsibility for product damage and accuracy reduction caused by transportation and handling reasons.
+
+#### Unpacking Inspection
+- After opening the package, first check for mechanical damage to the items, and then carefully check the items against the packing list (see appendix) or purchase contract. If the items are damaged or the product content does not match, do not use them and immediately contact TZTEK.
+- After unpacking, first remove the "transportation fixing plate" on the machine.
+- Place the product on a safe and flat surface, and use a level to adjust the measuring instrument to keep it level.
+
+#### Usage Safety
+- Place the product on a safe and flat surface, do not place it on an uneven surface or a place with falling object risk.
+- Do not use non-original accessories such as poor quality power cables and USB signal cables.
+- Do not adjust or disassemble product parts yourself.
+- Do not place the instrument in an environment with too much dust, excessive vibration, or large temperature changes.
+- Do not place any other items on the work platform to prevent collisions during platform movement.
+
+#### Operator Requirements
+- Operators need to have certain computer operation experience and basic knowledge of metrology and have received corresponding operation training provided by TZTEK.
+
+---
+
+# Maintenance and Care
+
+### Usage Environment
+- **Vibration Resistance**: If the image measuring instrument is subjected to additional surrounding vibrations, the measurement accuracy will decrease. When the frequency is less than 10Hz, the amplitude of the surrounding vibration should not exceed 2μm (peak-to-peak value); when the frequency is between 10Hz and 50Hz, the acceleration should not exceed 0.4Gal. If the vibration exceeds these limits, vibration isolation measures should be taken (such as installing vibration dampers).
+- **Dust-Free**: The components of the image measuring instrument must be kept dust-free. Although the dust cover has a certain protective effect on the image measuring instrument, the instrument should still be cleaned regularly.
+- **Power Supply**: Use a stable power supply of 90-264VAC, 47-63Hz, 10Amp to ensure the normal operation of the instrument.
+- **Temperature**: The ambient temperature should be kept at 20°C±1°C as much as possible. Do not adjust the machine accuracy at high or low temperatures; otherwise, the measurement accuracy at 20°C cannot be ensured.
+- **Humidity**: Humidity does not directly adversely affect measurement accuracy. However, high humidity can cause rust on the mechanical surface and hinder smooth axial movement. Therefore, the ambient humidity should be kept between 30% and 80%.
+- **Lighting**: The image measuring instrument should not be placed in strong light or direct sunlight, as this will greatly affect the measurement accuracy.
+
+### Component Maintenance
+- **Measurement Platform**: Be particularly careful with the glass platform when loading and unloading workpieces. Sometimes the measurement platform will have water vapor and oil mist; use a cleaner to remove dirt.
+- **Body Shell**: When the image measuring instrument is not in use, cover it with a dust cover. If the body shell is contaminated, wipe it with a soft cloth. Although contamination of the body shell does not directly affect measurement accuracy, it may spread to other parts of the body, such as linear guides or platforms, which do affect measurement accuracy.
+
+---
+
+# Chapter 1: Product Introduction
+
+The TZTEK VM series automatic image measuring instrument, independently developed and produced by TZTEK, uses image analysis and processing technology for non-contact geometric measurement. It is currently the most accurate, stable, and powerful image measuring instrument in China.
+
+This product integrates design in the fields of machine, light, electricity, and software, using non-contact optical measurement methods to automatically measure various geometric dimensions of workpieces, such as length, height, depth, contour, surface shape, angle, and position. It is especially suitable for the precise measurement and quality control of various precision workpieces, such as electronic parts, precision molds, stamping parts, plastic parts, PCBs, LCDs, threads, gears, and forming tools.
+
+The VM series automatic image measuring instrument is widely used in electronics, machinery, instrumentation, clocks and watches, light industry, military industry, aerospace, universities, research institutes, and metrology departments' laboratories, metrology rooms, and production workshops. It can also be applied in reverse engineering for 3D scanning.
+
+---
+
+# 1.1 Working Principle
+
+The structure of the TZTEK automatic image measuring instrument includes a measurement platform, Z-axis, microscope, CCD, light source, electronic control system, and computer. The computer is equipped with an image acquisition card to receive image data obtained by the microscope and CCD; the light source ensures that the computer obtains high-quality image data under different workpieces and measurement requirements; the computer sends commands to the electronic control system through the USB interface to move the measurement platform and Z-axis, making the area to be measured move into the visible area of the microscope; the precision measurement software installed on the computer uses image processing technology to process the obtained data and complete the measurement of the workpiece.
+
+The basic structure of the TZTEK automatic image measuring instrument is as follows:
+
+---
+
+# 1.2 Instrument Specifications
+
+### 1.2.1 VME Automatic Image Measuring Instrument – Economic Type
+
+The VME is an economic type automatic image measuring instrument designed by TZTEK for basic applications. It can realize XYZ three-axis CNC fully automatic measurement and supports various accessories such as surface light source, contour light source, handle, and contact probe. Equipped with the industry-leading Vispec measurement software (economic version), it has various core functions such as geometric measurement, CNC programming, and report output.
+
+#### Instrument Characteristics
+- Three-axis CNC control system, fully automatic measurement.
+- Three-axis precision linear guide rail, precision transmission system.
+- Fully mouse and handle operation, simple and easy to use.
+- Programmable 8-zone ring surface light source, LED contour light source.
+- Automatic focusing height measurement, can be equipped with a contact probe.
+- Vispec fully automatic image measurement software (economic version).
+- Provides multiple travel specifications configurations, such as 222, 322, 432, 542, etc.
+
+### 1.2.2 VMP Automatic Image Measuring Instrument – Professional Type
+
+The VMP is currently the most powerful automatic image measuring instrument in China, with stable performance and high measurement accuracy, offering excellent performance-to-price ratio. It adopts advanced four-axis CNC control technology, capable of 6.5:1 automatic zoom optical measurement. Equipped with the professional version of Vispec measurement software, it provides various
+
+ enhanced functions such as SPC statistics and drawing comparison in addition to core functions such as geometric measurement. The measurement performance of this product is certified by the National Institute of Metrology of China, and its performance exceeds its accuracy indicators.
+
+#### Instrument Characteristics
+- Four-axis CNC control system, fully automatic measurement.
+- Three-axis precision linear guide rail, precision transmission system.
+- Navitar automatic zoom optical lens, capable of automatic zoom measurement.
+- Fully mouse and handle operation, simple and easy to use.
+- Programmable 6-ring 8-zone ring surface light source, LED contour light source.
+- Automatic focusing height measurement, can be equipped with a contact probe.
+- Vispec fully automatic image measurement software (professional version).
+- Provides multiple travel specifications configurations, such as 222, 322, 432, 542, etc.
+
+### 1.2.3 VMU Automatic Image Measuring Instrument – High-end Type
+
+The VMU is a high-precision automatic image measuring instrument meticulously developed by TZTEK, incorporating the most advanced research results in mechanical, control, and software fields. It further improves the measurement accuracy based on the VMP, and its performance indicators target international high-end brands. It is currently the most accurate and stable automatic image measuring instrument in China.
+
+#### Instrument Characteristics
+- High-end configuration, ultra-precision fully automatic measurement, four-axis CNC control.
+- Three-axis THK precision linear guide rail, precision transmission system.
+- Renishaw open optical grating, high accuracy, and good stability.
+- Navitar automatic zoom optical lens, capable of automatic zoom measurement.
+- Fully mouse and handle operation, simple and easy to use.
+- Programmable 6-ring 8-zone ring surface light source, LED contour light source, coaxial light source.
+- Automatic focusing height measurement, can be equipped with a contact probe.
+- Vispec fully automatic image measurement software (high-end version).
+- Provides multiple travel specifications configurations, such as 222, 322, 432, 542, etc.
+
+### 1.2.4 VMG Automatic Image Measuring Instrument – Gantry Type
+
+The VMG is a fully automatic gantry-type image measuring instrument independently developed by TZTEK, with a maximum travel of 2520×2020mm, suitable for large travel measurements in industries such as PCBs and LCDs. It adopts a moving bridge structure, incorporating the most advanced design concepts in the industry, and ensures the accuracy and stability of the machine through the most complete design and the strictest production process control.
+
+#### Instrument Characteristics
+- Moving bridge structure, large travel fully automatic measurement, four-axis CNC control.
+- Stable and reliable granite machine base, smooth movement.
+- Fully mouse and handle operation, simple and easy to use.
+- Renishaw open optical grating, high accuracy, and good stability.
+- Navitar automatic zoom optical lens, capable of automatic zoom measurement.
+- Programmable 6-ring 8-zone ring surface light source, LED contour light source, coaxial light source.
+- Automatic focusing height measurement, can be equipped with a contact probe.
+- Vispec fully automatic image measurement software.
+- Provides multiple standard configuration specifications and can be customized according to requirements.
+
+### 1.2.5 VMQ Flash Image Measuring Instrument – Flash Type
+
+The VMQ is a flash image measuring instrument developed by TZTEK to meet customers' rapid measurement needs. It not only incorporates many advanced technological achievements in the field of image measurement but also integrates innovative flash measurement concepts. This image measuring instrument is especially suitable for batch measurement of small-sized workpieces such as mobile phone accessories, gears, springs, and screws. It is fast and easy to operate; for complex workpieces, only one button is needed to achieve rapid measurement, greatly improving measurement efficiency. The VMQ is equipped with rich external interfaces, allowing the device to be customized and integrated into various production lines for rapid online measurement.
+
+#### Instrument Characteristics
+- Precise flash measurement, instant results.
+- Fast speed, high efficiency, suitable for batch measurement needs.
+- Simple operation, one button press to quickly complete all measurement processes and output measurement results.
+- Automatic image registration function, no need to position workpieces, no fixtures required, simplifying operation.
+- Can simultaneously identify multiple measuring workpieces, no need to position workpieces, no fixtures required, simplifying operation.
+- Large-caliber double telecentric lens, 100mm diameter, realizing panoramic measurement.
+- Measurement results can be output in Word, Excel, CAD, etc.
+- Uses a 5 million-pixel image sensor, high resolution.
+- Measurement process does not require platform movement, quiet and reliable.
+- Equipped with rich external interfaces, can be customized to integrate into production lines for rapid online measurement.
+
+To meet customers' wide range of needs, TZTEK provides various specifications of standard configurations for all models listed in the table above and offers various optional accessories for customers to choose from. For details, please refer to the specific selection table provided by TZTEK or consult TZTEK sales and service personnel.
+
+---
+
+# 1.3 Vispec Measurement Software
+
+Vispec is a full-featured precision measurement software designed and developed specifically for TZTEK image measuring instruments. Its main functions are as follows:
+- Provides multiple basic geometric measurements: point, line segment, circle, arc, ellipse, rectangle, slot, distance, gap (Pin gap), angle, R angle, plane, coordinate system, calculator, spline, quadrilateral, ring (O-Ring), point set.
+- Provides multiple form and position tolerance measurement functions: straightness, roundness, parallelism, perpendicularity, inclination, concentricity, position, flatness, etc.
+- Provides multiple image extraction methods: manual points, drawing points, nearest edge points, focus points, circular frame points, nearest points, overall extraction, texture segmentation, multi-segment extraction, multi-segment texture segmentation, fast overall circle extraction, open contour line, maximum closed contour line, nearest closed contour line, etc.
+- Provides multiple construction functions: endpoint extraction, center extraction, intersection, perpendicular line, parallel line, bisector, median line, tangent, merge, etc.
+- Provides multiple coordinate system establishment methods: fixture coordinate system, point-line coordinate system, two points to determine the X-axis, two points to determine the Y-axis, three points to determine the coordinate system, two lines to determine the coordinate system, translation coordinate system, rotation coordinate system, manual adjustment of the coordinate system, and multi-coordinate system function.
+- Quickly establishes measurement tasks (measurement programs): element copying (translation copying, rotation copying, mirror copying), loading from DXF drawings (CAD loading).
+- Provides offline programming, re-editing, and offline re-editing functions for measurement tasks (measurement programs).
+- Tolerance setting: global tolerance setting, single element tolerance setting.
+- Fully automatic batch detection, supporting automatic and manual interactive operations.
+- Flexible machine control functions, including XYZ three-axis movement, lens zoom, light source control, automatic focusing, and multiple XYZ three-axis movement control methods.
+- Can output Word, Excel, HTML, TXT reports, and CAD files.
+- Powerful customized report output function, compatible with any report format of the customer.
+- Has SPC statistical function for effective quality control.
+- Equipped with multiple enhanced tools and plugins, such as drawing comparison, automatic contour extraction, etc.
+- Supports Simplified Chinese, Traditional Chinese, and English interfaces.
+
+---
+
+# Chapter 2: System Installation
+
+**It is recommended to complete this part of the system installation with the assistance of TZTEK technical service personnel.**
+
+## 2.1 Installation Configuration Requirements
+
+1. **Computer Hardware Configuration Requirements**
+
+   | Minimum Configuration | Recommended Configuration |
+   |-----------------------|--------------------------|
+   | CPU | Pentium® 4 1.6G | Pentium® 4 2G |
+   | Motherboard | Intel® 845 | Intel® 845 |
+   | Memory | 512M | 1G |
+   | Hard Disk | 40G | 80G |
+   | Graphics Card | 32M memory | 64M memory |
+   | Monitor | 15" LCD | 17" LCD |
+
+   **Note:**
+   1. The graphics card supports 24-bit and 32-bit color, and the resolution supports 1024×768.
+   2. The monitor resolution supports 1024×768, 1440×900, 1280×1024.
+
+2. **Operating System**
+
+   - Operating system requirements: Microsoft® Windows® XP + SP2, Microsoft® Windows® 7, .NET Framework® 2.0 or above.
+   - Operating system language: Supports Simplified Chinese, Traditional Chinese, and English.
+
+3. **Software Requirements**
+
+   - Microsoft® Word® 2003, Microsoft® Word® 2007.
+   - Microsoft® Excel® 2003, Microsoft® Excel® 2007.
+
+---
+
+## 2.2 Installing TZTEK Image Acquisition Card
+
+### 2.2.1 Installing Hardware
+1. Check if the image acquisition card is damaged. If there is no damage, clean the acquisition card before inserting it into the computer to ensure a normal signal connection.
+2. Turn off the power of the computer and all its peripherals, and open the computer case.
+3. Insert the image acquisition card into an empty PCI slot, secure the metal bracket to the case with screws, and close the case.
+4. Use the video cable provided by TZTEK to connect the image acquisition card to the TZTEK image measuring instrument.
+5. Turn on the computer power, the system will automatically recognize the image card and prompt "Found New Hardware".
+6. Follow the new hardware wizard prompts to complete the driver installation.
+
+### 2.2.2 Installing the Driver
+1. Turn on the computer and start Windows 7, open "Device Manager" in the "System" section, and find "Other Devices".
+2. Right-click "Multimedia Controller" - "Update Driver Software".
+3. Select "
+
+Browse my computer for driver software".
+4. Click "Browse", select the path where the driver is located, and then click "Next".
+5. The wizard will start installing the software, confirm the driver installation is complete. After the system prompts that the software installation is complete, click "Close" and restart.
+6. After restarting the computer, open "Device Manager" in the "System" section, find "TZTEK Precision Technology Co., Ltd" under the device icon of "TZTEK TZ400 Image Acquisition Card" to confirm whether the driver installation is successful.
+
+At this point, you have completed the installation of the image card driver.
+
+---
+
+## 2.3 Installing TZTEK Image Measuring Instrument Control Card
+
+### 2.3.1 Connecting Hardware
+1. Use the USB cable provided by TZTEK to connect the TZTEK image measuring instrument to the computer.
+2. Turn on the power of the TZTEK image measuring instrument, the system will automatically recognize the instrument and prompt "Found New Hardware".
+3. Follow the new hardware wizard prompts to complete the driver installation.
+
+### 2.3.2 Installing the Driver
+1. Turn on the computer and start Windows 7, open "Device Manager" in the "System" section, and find "Other Devices".
+2. Right-click "Multimedia Controller" - "Update Driver Software".
+3. Select "Browse my computer for driver software".
+4. Click "Browse", select the path where the driver is located, and then click "Next".
+5. The wizard will start installing the software, confirm the driver installation is complete. After the system prompts that the software installation is complete, click "Close" and restart.
+
+6. After restarting the computer, open "Device Manager" in the "System" section, find "TZTEK CNC Image Measuring Instrument" under the device icon of "TZTEK Precision Technology Co., Ltd" to confirm whether the driver installation is successful.
+
+At this point, you have completed the installation of the TZTEK automatic image measuring instrument driver.
+
+---
+
+## 2.4 Installing HASP (Dongle) Driver
+
+1. Double-click to start the HASP driver program HASPUserSetup.exe, select Next.
+2. Select "I accept the license agreement", and then select Next.
+3. Select Next.
+4. The program is installing.
+5. After the installation is complete, click Finish to complete the installation.
+
+---
+
+# Chapter 3: Usage Process
+
+### Measurement Terminology Explanation
+
+**Element:**
+Geometric elements measured by software, including points, line segments, circles, arcs, ellipses, rectangles, slots, distances, angles, R angles, planes, coordinate systems, calculators, splines, quadrilaterals, rings, point sets, etc.
+
+**Task:**
+Records the user's operations in the form of elements to form an element sequence and saves it as a file. In the measurement of a large number of the same type of workpieces, tasks can be established to complete batch automatic detection and improve work efficiency.
+
+---
+
+## 3.1 Before Using
+
+- Ensure that the "transportation fixing plate" on the machine has been removed; otherwise, it will cause very serious consequences.
+- Check if the power cable, image data cable, and control card data cable are connected correctly.
+- Turn on the computer power and start Windows 7.
+- Remove all workpieces and other items on the TZTEK image measuring instrument work platform (to prevent collisions during self-check).
+- Turn on the power of the TZTEK image measuring instrument to start the self-check work.
+- After the TZTEK image measuring instrument self-check is completed, start the Vispec software, enter the username and password to enter the main interface.
+- Note: The default username for the software is tztek or Admin, and the password is empty.
+
+---
+
+## 3.2 Calibration
+
+The product you purchased has been calibrated before leaving the factory. Generally, calibrate the product once a year. If there is a large measurement error, please contact TZTEK technical personnel for recalibration.
+
+---
+
+## 3.3 Measurement
+
+- Place the workpiece to be measured on the measurement work platform.
+- Move the work platform to make the workpiece image within the visible range, adjust the light source, Z-axis position, and lens magnification to make the image clear and the size appropriate.
+- Set the measurement-related parameters and display-related parameters in the software. Refer to Chapter 4.2 "Main Menu Bar" 4.2.4 "Settings Menu" for detailed instructions.
+- According to the actual shape of the workpiece, choose different measurement tools to draw the drawing:
+  - **Element Tool:** Select the type of element to be measured, and then select the method to generate the element.
+  - **Extraction Tool:** The method to generate elements from images through edge detection, focusing, etc.
+  - **Construction Tool:** The method to generate new elements from existing elements.
+  - **Coordinate Tool:** The method to generate coordinate systems and adjust coordinate systems.
+  - **Output Drawing:** After completing all element measurements, use the "Output DXF" function to output the drawn drawings as DXF files, which can be further edited by software such as AutoCAD.
+
+---
+
+## 3.4 Establishing Tasks
+
+### 3.4.1 Establishing Tasks through Manual Measurement
+The basic steps for establishing tasks through manual measurement are similar to the measurement steps in 3.3, with the following differences:
+- Set the workpiece coordinate system, the task starts automatic measurement from the first set workpiece coordinate system, the elements before the first coordinate system need to be measured manually.
+- Insert empty operations to plan the measurement path of the machine.
+- Insert text prompts in some steps to remind the user of the operation.
+- Edit and modify tasks, modify or delete elements in the task, and set tolerances. See 4.2.7 "Task Menu" for detailed instructions.
+- Set the focus mode of element measurement, used for automatic focusing before measurement during the automatic task running process.
+- Set the element properties to "manual elements", and the program will pause during the automatic task running process and wait for the user to measure manually. After completion, it will enter the automatic running process again.
+- Save the task: save the current task as a file with the .tsk suffix to complete the task generation.
+
+### 3.4.2 Importing Tasks from DXF Drawings
+
+1. Open the drawing file.
+   - Execute the menu item "Task -> Open DXF Drawing", select and open a DXF drawing. It is recommended to use AutoCAD 2004 or above version drawings. When opening drawings below AutoCAD 2004 version, a prompt box will pop up.
+
+2. Select the layer to extract.
+   - After opening the drawing, select the option box of the specific layer in the "Layer Information List" in the pop-up window to extract the corresponding layer information.
+
+3. Delete and restore elements.
+   - If the extracted layer information includes unnecessary elements, select the elements to be deleted in the "Retain Elements" list and click the "Delete" button. The element will be moved to the "Deleted Elements" list. If it needs to be restored later, select the element in the "Deleted Elements" list and click the "Restore" button. After deleting unnecessary elements, only the retained element pattern will be displayed on the left side of the window.
+
+4. Scaling ratio.
+   - The ratio of the actual part value to the drawing value. For example, if a 1mm line segment in the drawing is 2mm in the actual part, the scaling ratio is 2. The default scaling ratio is 1.
+
+5. Element filtering.
+   - In the opened editing standard drawing interface, after clicking the element filtering option, the types of elements that can be filtered will be displayed. Elements can be filtered according to needs. Element filtering has three states. Clicking on it with the mouse will respectively show: "check" means the selected element type is displayed and measured, "blank" means this type of element is not displayed and not measured, and "square" means the selected element is displayed but not measured. The "Hide elements without annotation" operation is also the same as the three states in the element filtering. Note: Elements and annotations need to be associated in CAD to be effective. After completing the element filtering operation, click "Refresh", and the drawing display will be refreshed. Click "Clear All", and no elements will be displayed or measured. At this time, "Clear All" becomes "Select All". Click "Select All" and all elements will be displayed and measured.
+
+6. Set the reference coordinate system and work light source.
+   - To enable the software to automatically measure the loaded elements, a workpiece coordinate system must be established for the task to run and establish a corresponding relationship with the actual part. At the same time, set the appropriate light source for part measurement.
+
+### 3.4.3 Importing Measurement from Gerber Drawings
+
+1. Open the Gerber drawing.
+   - Execute the menu item "Task -> Open Gerber Drawing", select the corresponding drawing to open.
+
+2. Edit the Gerber drawing.
+   - The editing of the Gerber drawing is basically the same as the DXF drawing, except there is no element filtering option.
+
+---
+
+## 3.5 Batch Automatic Measurement
+
+- When multiple samples of the same model workpiece need to be batch tested, use this fully automatic batch detection method.
+- First, establish a measurement task, then run this task to perform batch measurements on other workpieces.
+
+### Operation Steps
+- Generate task: The operation steps for generating a task file are detailed in 3.4 "Establishing Tasks".
+- Load task: Load a task from the task file, or directly use the task just established.
+- Set the workpiece coordinate system: Except for the first element which is
+
+ the fixture coordinate system and does not need to be manually extracted, other elements need the user to manually extract and set the first coordinate system. The program automatically aligns the workpiece and the measurement drawing according to the coordinate system manually extracted by the user and performs automatic measurement.
+- Set tolerance data according to measurement accuracy requirements.
+- Set the task measurement loop times according to actual measurement needs.
+- Set output: After automatic measurement, the software will automatically generate a .rst data file, which can be opened by SPC. If the user needs to directly output data, it can be set through the task parameter output file and the output settings item in the right-click menu of the element.
+- Click to run the task: After running the task, the measurement software will automatically control the machine and lens to measure all elements and related characteristic values in the task list in sequence.
+
+---
+
+## 3.6 Result Output
+
+1. **Output through SPC**
+   - After the task runs successfully, the measurement data will be automatically saved by the computer in a subdirectory named after the current date under the "System Settings -> Task Settings -> Output Directory". The saved files have the .rst extension. When using the SPC function, it can be opened as sample data. After loading the SPC, data can be exported to Excel or TXT files through setting the output attributes, for subsequent software processing or report production.
+
+2. **Direct Output of Task**
+   - Before running the task, set the task output file and element output attributes. During task running, the system will output the set data to the user-specified file in real time.
+
+3. **Main Interface Output**
+   - The current measurement data can be directly output as Word, Excel, TXT text, or HTML reports. It can also be saved as DXF drawing files.
+
+---
+
+## 3.7 Shutdown Steps
+
+- Save the data in the Vispec software as needed.
+- Close the Vispec software.
+- Turn off the power of the TZTEK image measuring instrument.
+- Turn off the computer.
+
+---
+
+# Chapter 4: Interface
+
+## 4.1 Interface
+
+### Main Interface
+The main interface is one of the most commonly used operation areas, where the image of the measured workpiece can be observed and related measurement operations can be performed.
+
+#### Image Area
+Displays the real-time image collected by the current lens. In the video image mode, element extraction operations can be performed on the image to extract points, lines, circles, arcs, ellipses, etc.
+
+#### Drawing Area
+Displays the overview of the current elements. In the drawing area, elements can be more conveniently re-edited, including element labeling, constructing new elements through elements, etc.
+
+## 4.2 Main Menu Bar
+
+- **File**: Load image files, save data files.
+- **Task**: Task running related commands.
+- **Tools**: Extended measurement tools.
+- **Settings**: System-related settings.
+- **Help**: Help information.
+
+### 4.2.1 File Menu
+
+- **Start Image Acquisition**: Start image acquisition, the image of the workpiece will be presented in the image measurement area.
+- **Pause Image Acquisition**: Click "Pause Image Acquisition" to pause the acquisition, obtaining a still image of the workpiece.
+- **Open Image File**: Load an image for measurement. The image is limited to BMP format, size 640*480.
+- **Save On-site Image**: Save the current image in the image window as a BMP format image file.
+- **Output to Word**: Output the current measurement data to a Word document. The output type, template, and definition format can be set in the system settings.
+- **Output to Excel**: Output the current measurement data to an Excel sheet. The output type, template, and definition format can be set in the system settings.
+- **Output to DXF**: Output the current measurement data as a DXF file, which can be further operated in software such as AutoCAD.
+  - Note: Only actual measurement values are output (only line segments, arcs, circles, ellipses, and point sets can be output).
+- **Output to TXT Text**: Output the current measurement data as a TXT text file. Note: Only data is output, not the image.
+- **Output to HTML**: Output the current measurement data as an HTML hypertext file.
+- **Real-time Output to Excel**: During task running, output the results in real time to an Excel file and automatically open it. It can be checked in the file menu or set in the system settings; and the function "Output to Excel after one task measurement is completed" is added in the task parameters of the system settings, solving the problem of zero shape and position tolerance when the reference element is at the back; and modified to make the data in the print area consistent with the real-time output data.
+- **Print After Task Completion**: If checked, the print dialog will automatically pop up and execute the print function after the task is completed.
+- **Data File**: Open the current TXT file.
+- **Open DXF Drawing**: Establish tasks from DXF drawings. Detailed operation see 3.4.2 Importing Tasks from DXF Drawings.
+- **Open Gerber Drawing**: Establish tasks from Gerber drawings. Detailed operation see 3.4.3 Importing Measurement from Gerber Drawings.
+- **Exit**: Exit the software.
+
+### 4.2.2 Task Menu
+
+- **Open Task**: Load a task from a file (this will clear the current task list).
+- **Save Task**: Save the current task to a file for later use.
+- **Run Task**: Run the tasks in the task list.
+- **Pause Task**: Pause the currently running task. It can be resumed by continuing to run the task.
+- **New Task**: Create a new task, and the current task list will be cleared.
+- **Task Output Directory**: Set the save location of the .rst file after running. It can be saved in the default system directory D:\output or customized by the user.
+- **Replace Last Data**: Replace the data of the last task run.
+- **Clear Actual Values**: Clear the actual measurement values of the current task.
+
+### 4.2.3 Tools Menu
+- The tools menu lists the enhanced measurement functions of the Vispec software. Detailed usage instructions are in Chapter 6 "Software Enhancement Function Description".
+
+### 4.2.4 Settings Menu
+
+#### 1. System Settings
+- **Overview**: Includes 5 items: coordinate system display mode, length display mode, angle display mode, magnification display mode, and grid spacing.
+  - Set the current coordinate system, current data unit and decimal places, current angle display mode and decimal places, and grid spacing for better observation of images and data, and also includes "sound prompt" and "Z-axis maximum movement distance" settings.
+
+- **Magnification Display Mode**: Set the magnification display mode in the system settings. Currently, there are two modes, "magnification" mode is the original magnification display mode, and "digital" mode is 1, 2, ..., 11.
+
+- **Element Display**: The options set determine the data items displayed in the element attribute list on the main interface.
+
+- **Preset Tolerance**: The set tolerance determines the default tolerance of the new element. This setting is valid for all newly generated elements of the same type. If you need to modify the tolerance of a specific element, double-click the tolerance item to be modified in the element attribute list on the main interface to modify it. After modification, the default tolerance no longer affects this tolerance attribute.
+
+- **Color Settings**: Set the colors of the display elements on the main interface.
+
+- **Output Template**: Set the output templates for Word and Excel programs, as well as the parameters in the template.
+
+- **Task Parameters**: Set the parameters during task running.
+  - The output directory refers to the default directory of the software output, including some temporary files and task data files.
+
+- **Task Output**: Set the data output after the task runs. The output file refers to the TXT file or Excel report that the system automatically outputs after the user sets the output options, for subsequent use by the user.
+
+- **Extraction Parameters**: Set the parameters during the element extraction process.
+
+#### 2. Image Attribute Adjustment
+- Set the attributes of image acquisition, which can adjust the brightness, contrast, etc., of the image. When the image acquisition quality is not ideal, the image quality can be improved by adjusting the attributes. Currently, the default setting is the optimal image attribute value: brightness 100, contrast 133, hue 130, saturation 98.
+  - Note: It is not recommended to change this attribute casually.
+
+#### 3. Lens Calibration
+- Quickly calibrate the current magnification of the lens.
+
+#### 4. Calibrate Focus Accuracy
+- Place the standard gauge block in the center of the image area, half black and half white, to calibrate the accuracy of the focus.
+
+#### 5. Switch Calibration Files
+- Switch calibration data in real time without replacing calibration data or restarting the software.
+
+#### 6. Account Management
+- Set user accounts for using the software. Only administrators can set accounts.
+
+#### 7. Switch Users
+- Re-enter the login interface to switch to different users.
+
+#### 8. Change Password
+- Change the password of the current user.
+
+### 4.2.5 Help Menu
+
+- **About**: Click to view information about the software.
+
+---
+
+## 4.3 Main Toolbar
+
+### Menu from left to right
+1. **Image Acquisition**: Start image acquisition, and the image of the workpiece will be presented in the image measurement area.
+2. **Save On-site Image**: Save the current image in the image window as a BMP format image
+
+ file.
+3. **Output to Word**: Detailed function description see Chapter 4.2.1 File Menu "Output to Word".
+4. **Output to Excel**: Detailed function description see Chapter 4.2.1 File Menu "Output to Excel".
+5. **Output to DXF**: Detailed function description see Chapter 4.2.1 File Menu "Output to DXF".
+6. **Selection Mode**: The selection mode can return each function key to the default state of the software.
+7. **Drag Mode**: In drag mode, you can drag the measurement platform by left-clicking the mouse.
+8. **Speed Mode**: In speed mode, click the left mouse button, and the measurement platform will move according to the speed mode. The farther the mouse click position is from the center, the faster the movement speed.
+9. **Zoom Mode**: In zoom mode, left-click to zoom in the image in the upper right corner of the interface; right-click to zoom out.
+10. **Display Measured Line**: The image window and drawing window display all actual measured lines.
+11. **Display Standard Line**: The image window and drawing window display all standard value lines.
+12. **Display Allowable Deviation Line**: According to the set contour deviation, display the allowable deviation line around the standard line.
+13. **Display Scale**: Display the scale and mechanical coordinate system in the image window and drawing window.
+14. **Display Grid**: Display grid lines in the center of the image window.
+15. **Display Crosshair**: Display the crosshair in the center of the image window.
+16. **Display Label**: Display the label of the selected element.
+17. **Display Drawing**: Display the workpiece drawing in the image window.
+18. **Focus Indicator (VMQ Series has this function)**: Manually focusing shows the clarity of the current image.
+19. **System Settings**: System parameter settings, detailed operations see Chapter 4.2.4 System Settings.
+20. **SPC**: SPC statistical analysis function, detailed operations see Chapter 6.1 SPC.
+21. **Help**: Display help files.
+
+---
+
+## 4.4 Main Window
+
+The main window is one of the most commonly used operation areas, where the image of the measured workpiece can be observed and related measurement operations can be performed.
+
+### Image Area
+Displays the real-time image collected by the current lens. In the video image mode, element extraction operations can be performed on the image to extract points, lines, circles, arcs, ellipses, etc.
+
+### Drawing Area
+Displays the overview of the current elements. In the drawing area, elements can be more conveniently re-edited, including element labeling, constructing new elements through elements, etc.
+
+---
+
+## 4.5 Geometric Measurement Area
+
+### Geometric Measurement
+When performing geometric measurements, first select the element type to be detected from the first column of elements, then select the method to obtain the element: extraction or construction.
+
+### Element
+The currently supported element types include points, line segments, circles, arcs, ellipses, rectangles, slots, distances, angles, R angles, planes, coordinate systems, calculators, quadrilaterals, rings, Z-axis zero points, point sets, lengths, symmetry, electronic calipers, etc.
+
+When performing element operations, first select the element type to be generated, and then select the operation type (extraction or construction). Some operation types (extraction or construction) will automatically generate fixed element types or default types. You can directly select the operation type, and the system will automatically select the corresponding element type.
+
+---
+
+### 4.5.1 Element
+
+Currently supported element types include points, line segments, circles, arcs, ellipses, rectangles, slots, distances, angles, R angles, planes, coordinate systems, calculators, quadrilaterals, rings, Z-axis zero points, point sets, lengths, symmetry, electronic calipers, etc.
+
+When performing element operations, first select the element type to be generated, and then select the operation type (extraction or construction). Some operation types (extraction or construction) will automatically generate fixed element types or default types. You can directly select the operation type, and the system will automatically select the corresponding element type.
+
+#### Distance Function
+When the text overlaps in the distance function, you can click the view area, point the arrow to the area you want to zoom in, and then scroll the mouse wheel to zoom in and out, holding down the middle button (wheel) to drag.
+
+---
+
+### 4.5.2 Extraction
+
+#### Extraction Function
+The extraction function includes: preset elements, drawing points, nearest edge points, focus points, circular frame points, best edge points, nearest points, overall extraction, texture segmentation, multi-segment extraction, multi-segment texture segmentation, fast overall circle extraction, contour line extraction, etc.
+
+The extraction function is a way to obtain points from the image. Combined with the element type, it forms a complete element extraction process.
+
+- **Preset Elements**: Select the element, then select the preset element icon, and a corresponding element preset method will pop up. Currently supported: points, lines, circles, arcs, rectangles.
+- **Drawing Points**: Directly draw points on the image. Combined with the element type, it can form functions such as drawing points, drawing two-point lines, drawing three-point circles, drawing three-point arcs, drawing five-point ellipses, drawing five-point rectangles, drawing multi-point splines, etc. The drawing function is not limited by the actual image and can draw elements at any position as needed. Note: Elements generated by drawing will not be measured during task running.
+- **Nearest Edge Point**: Find the nearest edge point of the image at the mouse position.
+- **Focus Point**: Obtain a point at the center of the image through automatic focusing, mainly used for Z-axis measurement.
+- **Circular Frame Point**: Select a nearest contour line point within the circular frame range.
+- **Nearest Point**: Find the nearest image point at the mouse position.
+- **Best Edge Point**: Find the best point within the extraction frame range.
+- **Overall Extraction**: Overall extraction includes extracting lines, circles, arcs, and ellipses. Overall extraction has high calculation accuracy and stability. When the overall pattern of the element to be measured is included in the image window, it is recommended to use this extraction method.
+  - **Overall Extraction Line Segment**: Input two points to form a line frame and automatically extract and fit to generate elements.
+  - **Overall Extraction Circle**: Input three points to form a circular frame and automatically extract and fit to generate elements.
+  - **Overall Extraction Arc**: Input three points to form an arc frame and automatically extract and fit to generate elements.
+  - Note: During overall extraction, the position of the extraction points and the size of the selection frame can be adjusted to meet different measurement needs. The scanning direction also needs to be set, which can be from black to white, from white to black, or dual-edge scanning, with white to black as the default.
+- **Texture Segmentation**: Similar to the overall extraction method, mainly used for extracting images with many textures, such as printed boards.
+- **Multi-segment Extraction**: Includes extracting line segments, circles, and arcs. Select different segments sequentially on the image, and after completing all segment extractions, right-click to fit and generate the required line segments, circles, and arcs. This function is mainly used when measuring larger elements, which cannot be completely measured in the image window and requires moving the platform to complete the extraction.
+  - **Multi-segment Extraction Line Segment**: Extract two points to select a segment, and after multiple selections (can be once), right-click to fit and generate a line segment.
+  - **Multi-segment Extraction Circle**: Extract three points to select a segment, and after multiple selections (can be once), right-click to fit and generate a circle.
+  - **Multi-segment Extraction Arc**: Extract three points to select a segment, and after multiple selections (can be once), right-click to fit and generate an arc.
+- **Fast Overall Circle Extraction**: Overall extraction circle, fast overall circle extraction has a faster calculation speed during task running.
+- **Contour Line Extraction**: Icons are open contour line, maximum closed contour line, nearest closed contour line. After selecting the point set element, the corresponding contour line extraction method can be selected as needed.
+- **Straight Line Point (Scanning Point)**: Under the default point extraction parameter, select this extraction function, extract two points to form a directed line segment. The first point is the starting point of the line segment, and the second point is the ending point. Then jump to the new starting point of the directed line segment for the next point extraction.
+  - **Swap the Two Ends of the Directed Line Segment**: Click the line segment (input item) to be edited, and a directed line segment will appear; hold one end of the line segment, and a diagonal bidirectional arrow will appear; move the mouse to the other end, release the left button.
+  - **Move the Directed Line Segment**: Click the line segment (input item) to be edited, and a directed line segment will appear; hold the center of the line segment, and an up-down-left-right arrow cross will appear. Then move the mouse in the image area to the desired position and release the left mouse button.
+  - **Rotate the Directed Line Segment**: Click the line segment (input item) to be edited, and a directed line segment will appear; hold the position between the center and the end of the line segment, and a white cross will appear. Then move the mouse in the image area to the desired position and release the left mouse button.
+  - **Change the Length of the Directed Line Segment**: Click the line
+
+ segment (input item) to be edited, and a diagonal bidirectional arrow will appear. Move the mouse in the image area to the desired position and release the left mouse button.
+
+  **PS**: When the point extraction parameter is the default value, black and white are relative.
+  - The starting point of the line segment is in the black area, and the ending point is in the black area, passing through two or more black-white boundaries. The point is on the first white-to-black boundary along the line segment from the starting point.
+  - The starting point of the line segment is in the white area, and the ending point is in the white area, passing through two or more black-white boundaries. The point is on the first white-to-black boundary along the line segment from the starting point.
+
+---
+
+### 4.5.3 Construction
+
+#### Construction Function
+The construction function can process existing elements to generate endpoints, centers, intersections, perpendicular lines, parallel lines, bisectors, median lines, tangents, etc., and has an element merging function.
+
+- **Extract Endpoints**: Click to select a line segment or arc to generate the two endpoints of the line segment or arc.
+- **Extract Center**: Click to select an element to generate the center of the element, such as the center of a circle, the midpoint of a line segment, the center and midpoint of an arc, etc.
+- **Extreme Points**: Click to select a circle, arc, etc., to display the extreme points of the element for selection.
+- **Extract Intersection**: Click to select line segments, circles, or arcs to generate the intersections of line segments, circles, or arcs.
+- **Connect Two Points**: Click to select two points to generate a line segment with these two points as endpoints.
+- **Parallel**: Generate parallel lines.
+- **Perpendicular**: Generate perpendicular lines.
+- **Tangent**: Generate tangents or tangent points for points, lines, circles, arcs, and circles or arcs.
+- **Bisector**: Generate a median line, angle bisector, symmetry axis, etc.
+- **Merge**: Merge points into lines, merge arcs into circles or arcs, merge points into circles, etc.
+- **Segment**: Segment point sets and fit. First select the element type, then select the button, then select the point set element to be segmented, and a point selection dialog will pop up. Select the points to be fit, and it will automatically fit into the required element.
+
+- **Draw Circle with Radius**: Select any element, and a circle can be generated with the center of the element as the center and an input radius value.
+
+---
+
+### 4.5.4 Coordinate
+
+#### Coordinate Function
+The coordinate function can establish different coordinate systems, and multiple coordinate systems can be established in one task. Existing coordinate systems can also be adjusted.
+
+Coordinate system functions belong to construction functions. Therefore, before establishing a coordinate system, the base elements of the coordinate system need to be generated. **Note:** Due to the construction principle of the coordinate system, some special cases of constructing coordinate systems will be unstable. For example, when determining a coordinate system with a point and a line, if the line segment is in a 90-degree vertical state, the construction will be unstable. Also, when determining a coordinate system with two lines, using a line segment and its bisector to construct will also be unstable. Please use it accordingly.
+
+- **Fixture Coordinate System**: Can be directly run automatically without aligning the workpiece.
+- **Point-line Coordinate System**: Select a point and a line segment as the origin and the positive direction of the X-axis, respectively.
+- **Two Points to Determine the X-axis**: Select two points, the first point as the origin, and the direction of the line connecting the two points as the positive direction of the X-axis.
+- **Two Points to Determine the Y-axis**: Select two points, the first point as the origin, and the direction of the line connecting the two points as the positive direction of the Y-axis.
+- **Three Points to Determine the Coordinate System**: Select three points, the first point as the origin, and the direction of the line connecting the second and third points as the positive direction of the X-axis.
+- **Two Lines to Determine the Coordinate System**: Select two line segments, the intersection of the two lines as the origin, and the first line as the positive direction of the X-axis.
+- **Translation Coordinate System**: Select a point as the new origin of the coordinate system.
+- **Rotation Coordinate System**: In an existing coordinate system, select a point, and the direction of the line connecting the original coordinate system origin and this point will be the positive direction of the new coordinate system X-axis.
+- **Manual Adjustment of Coordinate System**: Can input specified rotation and translation values to quantitatively adjust the coordinate system.
+
+---
+
+## 4.6 Motion Control Area
+
+### Motion Control Area
+The motion control area is divided into three parts: grating data area, platform control area, and light source control area. The three work together to complete platform control and image detection.
+
+### 4.6.1 Grating Data Area
+The grating data area displays the current readings of the grating ruler, that is, the platform coordinates of the current image center point. Clicking the left mouse button on the reading will pop up a dialog box on the right side. After inputting the target position data and confirming, the platform will move to the specified position.
+
+#### ZOOM Magnification
+Control the lens to select the required magnification.
+
+#### Software Unit Settings
+The current units that can be set are millimeters, inches, and mils.
+
+#### Angle Display Settings
+Can choose degree-minute-second mode or decimal mode.
+
+#### Interface Display Coordinate System Settings
+Can choose rectangular coordinate system or polar coordinate system.
+
+### 4.6.2 Platform Control Area
+The platform control area is used to control the movement of the mechanical platform (the platform can also be controlled by the handle).
+
+#### Emergency Stop Button
+In case of abnormal platform movement, immediately stop platform movement. The emergency stop button can also be used to stop task running, automatic focusing, automatic contour extraction, and panoramic stitching.
+
+#### Movement Buttons
+Control the movement of the X, Y, and Z axes in three directions. The movement mode can be step mode or speed mode. The step or speed of movement can be output in the input box on the right side of the step/speed button.
+
+- In step mode, each click of the movement button moves the platform by the specified step value.
+- In speed mode, the movement button remains pressed, and the platform moves at the specified speed in the specified direction. Note: The speed mode moves according to the actual speed limits of the platform.
+
+#### Automatic Focus Button
+Click the automatic focus button, and the program will control the lens to move up and down to find the best focus until the image is clear. Meanwhile, a focus point will be generated in the task list. Note: During automatic task running, this automatic focus process will be repeated. When the height difference between the actual workpiece and the programmed workpiece is not significant, the focus point in the task list can be deleted to improve task running speed.
+
+#### Automatic Lighting
+Click to automatically adjust the brightness of the selected light source to obtain the best illumination brightness.
+
+### 4.6.3 Light Source Control Area
+
+#### Coaxial Light
+- **Surface Light**
+- **Contour Light**
+- **Surface Light Control Mode**
+- **Light Source Switch Control**
+- **Light Source Brightness Adjustment**
+
+The light sources used in the VM series image measuring instruments are surface light, contour light, and coaxial light. When the light is off, it shows a dark color, and when it is on, it shows a bright color. The brightness of the light can be adjusted by dragging the light source adjustment button.
+
+To conveniently switch the light on and off, select the corresponding light source area and click the left mouse button to turn on the light, and click the right mouse button to turn off the light.
+
+Surface light is mainly used to measure the surface features of workpieces. According to the platform configuration, there are 1-ring 8-zone light sources, 1-ring 4-zone light sources, or 6-ring 8-zone light sources. Different configurations will result in different interfaces in the Vispec software. The 1-ring 8-zone surface light has 8 zones that can be independently controlled for brightness and switch, while the 6-ring 8-zone surface light has 48 zones that can be independently controlled for LED brightness and switch.
+
+In the surface light area, dragging the mouse can continuously turn on or off the surface light.
+
+The surface light intensity and switch can be quickly and conveniently controlled by selecting the control mode on the right side of the light source control area.
+
+- **Block Control**: Each block is independently controlled for intensity and switch.
+- **Ring Control**: Each ring is uniformly controlled for intensity and switch, with a minimum control unit of one ring, each ring includes 8 zones (valid for 6-ring 8-zone).
+- **Zone Control**: Each zone is uniformly controlled for intensity and switch, with a minimum control unit of one sector zone, each sector zone includes 6 zones (valid for 6-ring 8-zone).
+- **Overall Control**: Control the intensity and switch of all surface light zones simultaneously.
+
+Contour light is mainly used to measure the outer contour of parts. Coaxial light is mainly used for measuring surfaces with high reflectivity, such as glass. It is also suitable for measuring deep holes or grooves.
+
+**Turn off all light sources.**
+
+---
+
+## 4.7 Platform Navigation Area
+
+The platform navigation area is divided into three windows: element attribute window, magnified image window, and element out-of-tolerance, point cloud map window. These four windows assist in better measurement and observation.
+
+### 4
+
+.7.1 Element Attribute Window
+The element attribute window is used to display the name, actual measured value, standard value, allowable deviation, and error of each element, and the results are displayed in real time. Clicking an element attribute item can display the selected element in the drawing window and mark it in the image window. Double-clicking an element attribute item will pop up the detailed parameter setting window of the element, where the element name, coordinate value, tolerance, out-of-tolerance prompt, and output parameters can be modified.
+
+#### Add Element Window
+In the element attribute window, select the element to be displayed and click the "Add" button. The selected element will be displayed in the element attribute window.
+
+### 4.7.2 Magnified Image Window
+The magnified image window displays the enlarged image of the selected area in the image window. The enlarged image window can be moved by clicking and dragging the mouse in the image window. The enlarged image window can be zoomed in and out by scrolling the mouse wheel in the image window.
+
+### 4.7.3 Out-of-Tolerance Element Window
+The out-of-tolerance element window displays the elements that are out of tolerance in the current measurement task. The out-of-tolerance elements are displayed in red. Clicking an out-of-tolerance element will display the selected element in the drawing window and mark it in the image window.
+
+### 4.7.4 Point Cloud Map Window
+The point cloud map window displays the point cloud data of the current measurement task. The point cloud map is a graphical representation of the measured point data. The point cloud map can be zoomed in and out by scrolling the mouse wheel in the point cloud map window.
+
+---
+
+### 8.8 Task List Area
+
+1. Element List
+The element list box displays the current task elements in order, including empty operations and focus points.
+
+Button descriptions are as follows:
+When there are elements in the task list and the task is not running, clicking the label button will pop up the element reset interface. Element reset has two methods: reset all and reset numbers only.
+
+- Reset all: All elements in the element list are reset according to the initial number, incrementing one by one.
+- Reset numbers only: Only the elements with numeric labels are reset.
+
+You can choose to continuously number the elements by ignoring non-numeric elements, ensuring that numeric element labels are continuous. If not selected, non-numeric elements will also occupy a numeric position, but are not displayed as numeric labels.
+
+**Element Filter**: Click the icon to pop up the element filter box. Select the elements to filter and click confirm. Only the filtered elements will be displayed in the element list, making operations more concise and convenient.
+
+- **Run Task**: Runs the current task. If there is a workpiece coordinate system, you need to select the consistent reference coordinate system when editing the task. Then the task will run automatically, and the button will switch to a pause button.
+- **Stop Task**: Stops the current task.
+- **Pause Task**: Pauses the current task.
+- **Open Task**: Opens a previously saved task file.
+- **Save Task**: Saves the current task to a task file.
+- **Output Last Run Data**: Outputs the data from the last run.
+- **Set Loop Mode**: Sets the number of loops and the mode.
+- **Fixed Start Position**: Sets the loop count for the task run.
+- **Random Start Position**: Batch measurement for irregularly placed identical workpieces.
+- **Grid Start Position**: Batch measurement for regularly placed identical workpieces.
+- **Image Matching Position**: Sets the maximum number of matches based on the registered pattern.
+- **Task Z-axis Reference Plane**: Before and after changing the workpiece height, click to get the Z value of the original task and the current task, then click confirm and save. You can measure the task without changing the task.
+  
+**Element List**
+- Move Platform To: Adjusts the XYZ axis and lens magnification to the position when extracting the element.
+- Tolerance Settings: Sets and views element tolerances and form tolerances. Vispec currently supports straightness, roundness, parallelism, perpendicularity, inclination, concentricity, position, flatness, and profile tolerance.
+
+You can modify the element standard value and correct the element measurement value simultaneously. Double-click the corresponding table to make changes.
+- Modify Label: Click to modify the element label, displayed in front of the element list, used to identify the element.
+- Redraw Annotation: Redraws the annotation to adjust the display position and object of the annotation. Select the annotation in the drawing area, drag the annotation or number with the left mouse button, and right-click during the redraw process to delete the annotation of the element.
+- Delete Element: Deletes the current element (this action cannot be undone). You can also directly press the Delete key on the keyboard.
+- Copy Element: Copies the element through translation, rotation, mirroring, and cross-coordinate system copying.
+  - **Translate Copy**: Moves and copies elements.
+  - **Rotate Copy**: Rotates and copies elements.
+  - **Mirror Copy**: Mirrors and copies elements.
+  - **Cross-coordinate System Copy**: Copies elements from the current coordinate system to another coordinate system. Coordinate system elements are not copied.
+
+**Insert Current**: Sets the insertion position of the task element. The new element is inserted before the currently selected element.
+**Insert Last**: Sets the insertion position of the task element. The new element is inserted at the end of the task.
+
+2. Attribute List
+The attribute list box displays the attribute values of the current element.
+
+Note: Set the attributes to be displayed in “System Settings -> Display Settings”. Currently, the more commonly used attributes are displayed by default.
+Note: Set the default tolerances for all element attributes in “System Settings -> Preset Tolerances”.
+Note: Set tolerances and standard values through the “Tolerance Settings” in the right-click list of the element.
+
+3. Input List
+The input list is a collection of operation methods and their sequences during the element measurement process, also the collection of measurements during the actual task run. Users can edit the element measurement process by adjusting the input points to control the entire task run.
+
+**Button Functions at the Bottom:**
+- **Insert Empty Move**: Inserts an empty move at the current position in the input process to control the machine movement path during the task run. Only extraction type elements can insert empty moves because construction type element tasks do not cause machine movement.
+- **Insert Text Prompt**: Pops up a prompt box during the task run to prompt the current operation.
+- **Right-click Menu**:
+  - **Move Platform To**: Moves the platform to the current input point platform position and sets the lighting status.
+  - **Focus Mode**: The focus status when the task runs to the current input point.
+  - **Focus Before Measurement**: Focuses before each measurement input point.
+  - **Inherit Focus**: Inherits the z-axis position of the previous measurement point when measuring this focus point.
+  - **No Focus**: Directly uses the z-axis position of the current input point during programming.
+  - **Set Light Source**: Adjusts the lighting settings for the current input point task run.
+  - **Set Point Extraction Parameters**: Customizes the settings during extraction to control the extraction effect to meet different measurement needs. The default setting page is shown below:
+
+**1) Edge Direction:**
+- **Dual Edge Scanning**: Extraction direction can be from shallow to deep or deep to shallow.
+- **White to Black**: Scans from light to dark edge.
+- **Black to White**: Scans from dark to light edge.
+
+**2) Edge Priority:**
+- **Intensity Priority**: Selects the edge with the strongest contrast for extraction.
+- **Center Priority**: Selects the edge closest to the center line of the extraction frame.
+- **Nearest Edge**: Selects the nearest edge in the direction of the arrow in the extraction frame.
+- **Farthest Edge**: Selects the farthest edge in the direction of the arrow in the extraction frame.
+
+**3) Extraction Parameter Value Settings:**
+- **Burr Size Threshold**: Modifies the burr size value to discard some points.
+- **Burr Sharpness Threshold**: Modifies the burr sharpness value.
+- **Sampling Density**: The proportion of the number of samples to the maximum number of points, ranging from 0 to 1.
+- **Maximum Number of Points**: The maximum number of extraction points. When the edge point count is large, more points participate in the calculation for higher accuracy.
+- **Edge Intensity Upper Limit**: The edge intensity range is from 0 to 1. When there are several close edges, set a range to extract the edge within the intensity range and discard others.
+- **Edge Intensity Lower Limit**: Refer to the upper limit.
+
+### 8.9 Print Data Area
+Displays the relevant attribute values of the measured elements in real-time during the task run.
+
+### 8.10 Keyboard Shortcuts
+The software sets keyboard shortcuts for common functions as follows:
+You can customize shortcuts based on user preferences in “System Settings -> Shortcuts”.
+
+- **ESC**: Cancel or exit, generally equivalent to the right-click cancel function, and an emergency stop command during thread operation.
+- **F1**: Help.
+- **F3**: Open task.
+- **Alt + F4**: Exit the software program.
+- **F5**: Start task.
+- **F6**: Pause task.
+- **F7**: Switch to “Video Image” window.
+- **F8**: Switch to “Drawing Measurement” window.
+- **F9**: Switch to “Selection Mode”.
+- **F10**: Switch to “Drag Mode”.
+- **F11**: Switch to “Speed Mode”.
+- **F12**: Switch to “Zoom Mode”.
+- **Ctrl + W**: Output to Word.
+- **Ctrl + E**: Output to Excel.
+- **Ctrl + D**: Output DXF file.
+- **Ctrl + Arrow Keys**: X-axis moves a specified distance in step mode.
+- **Ctrl + Arrow Keys (up/down)**: Y-axis moves a specified distance in step mode.
+- **Ctrl + Home/End**: Z-axis moves a specified distance in step mode.
+
+### 9.1 VMQ System Installation
+
+#### 9.1.1 Installation Configuration Requirements
+The VMQ installation configuration requirements are consistent with the standard machine. Refer to section 2.1 for installation configuration requirements.
+
+#### 9.1.2 Install Camera Driver
+1. Double-click to start the uEye.exe driver program.
+2. Select English and click Next.
+3. Click Install Driver and select Complete for a full installation, then click Next.
+4. The default installation location is in the C drive. Click Next to continue the installation.
+5. This will automatically disconnect the network connection. Click OK to continue the installation task.
+6. Check "Always trust" in the dialog box and click Install.
+7. Click Finish. The computer will automatically restart to complete the final installation.
+
+#### 9.1.3 Install TZTEK Image Measuring Instrument Control Card
+The VMQ image measuring instrument control card installation is consistent with the standard machine. Refer to section 2.3 for the installation of the TZTEK image measuring instrument control
+
+ card.
+
+#### 9.1.4 Install HASP (Dongle) Driver
+The VMQ HASP (dongle) driver installation is consistent with the standard machine. Refer to section 2.4 for the installation of the HASP (dongle) driver.
+
+### 9.2 VMQ Software Main Interface
+
+### 9.3 VMQ Main Menu Bar
+The VMQ main menu bar is similar to the standard Vispec. Refer to section 4.2.
+
+### 9.4 VMQ Main Toolbar
+The VMQ main toolbar icons, except for the last "Edit", "Run", "Register Pattern", and "Verify Pattern", have functions similar to the standard Vispec. Refer to section 4.2.
+
+1. **Edit**: In this state, you can edit tasks, register patterns, and extract elements in the video area. The task run-related buttons are grayed out. You can save tasks, open tasks, and output run data.
+2. **Run**: In run mode, you can run tasks but cannot register patterns or verify patterns. You can open new tasks but cannot save tasks.
+3. **Register Pattern**: Effective in edit mode. Click the "Register Pattern" button, and a light blue box will appear in the image area. Use the mouse to adjust the size of the box and move the entire box. Move the mouse to the round attachment of the registration box to rotate it.
+4. **Verify Pattern**: Verifies the registered pattern. If verification fails, a prompt will appear. If successful, the pattern number No.* will be displayed inside the box, and the box will turn green. Minor defects or other image edges within the box are acceptable. The largest closed contour within the box will be registered as the pattern. Once registered, the registered pattern information will appear in the pattern display area below.
+
+### 9.5 VMQ Main Window
+The VMQ main window has two modes: video image mode and drawing measurement mode. The drawing measurement mode is similar to the standard Vispec software. Refer to section 4.4.
+
+The VMQ video image mode differs from the standard Vispec video area, described in detail below:
+
+Due to the large field-of-view lens used in VMQ, the entire platform image can be seen. Key points include:
+- **Yellow Line**: The yellow line is the measurement area warning line. The area inside the yellow line is the measurement area, ensuring measurement accuracy. Outside the yellow line, measurement accuracy is not guaranteed.
+- **Image Zoom**: Click the video area and scroll the mouse wheel to zoom in and out. Adjust the object platform height to improve image clarity if needed.
+- **Image Move**: Click the video area and drag the mouse wheel to move the image.
+
+### 9.6 VMQ Light Source Control Area
+The VMQ software does not have a grating and operation control area, but the light source control area is similar to the standard Vispec software. Refer to section 4.6.3.
+
+The main difference in the VMQ light source control area is the addition of "Adjust CCD Exposure Time".
+
+The default exposure time value is around 20. Generally, when using surface light, adjust the exposure time to enhance the effect. The default value is sufficient when using contour light.
+
+### Chapter 10: Software Enhancement Function Description
+This chapter details the enhanced functions of the Vispec software, i.e., the items in the "Tools" dropdown menu.
+
+#### 10.1 SPC
+Every time a measurement task runs normally, the Vispec software saves the measurement data as a data file (.rst). SPC can perform statistical analysis on these saved data.
+
+1. **Load Sample Data**:
+  - Load Sample: Select the directory where the measurement data is located and choose the data files to view by multi-selection.
+  - Clear Sample: To perform new SPC analysis, clear the already loaded sample data first. Otherwise, the original sample data will remain when new samples are loaded.
+
+2. **Control Items**:
+  Click any element in the left element list, and the right side shows the attribute data of the element in each file. Double-click on the control attribute column to open the "Set Control Items" dialog box. Right-click to open a menu and select "Add to Control Items" to open the "Set Control Items" dialog box.
+
+  In the "Set Control Items" dialog box, set the standard value and tolerance. After setting, click confirm to complete a control item setup. The attributes and statistical results of all the elements will be displayed in the charts and data pages. Switch the current control item through the control item dropdown box when there are multiple control items.
+
+3. **Control Chart**:
+  Click "Control Chart" to view various control charts of the current control item, as shown below:
+
+- **XBar-R**: When quality data can be reasonably grouped, use the X control chart for the process average and the R control chart for process variation.
+- **XBar-S**: Similar to X-R control chart, but the S control chart has higher detection power though it's more complex to calculate. Generally, use the R control chart for sample size n < 10 and the S control chart for n > 10.
+- **XMed-R**: Similar to X-R control chart, but the X control chart has weaker detection power. It's simpler to calculate.
+- **X-RM**: Use the X-RM control chart when quality data cannot be reasonably grouped, such as:
+  - Only one data can be collected at a time, such as production efficiency and loss rate.
+  - Extremely uniform process quality, such as liquid concentration.
+  - Time-consuming and costly to obtain measurement values, such as complex chemical analysis and destructive testing.
+  Use X-R control chart to improve detection power when quality data can be reasonably grouped.
+
+- **Histogram**: Clearly displays the distribution trend of stored data, understanding the quality status.
+- **Process Control Chart**: Analyzes data distribution using the normal distribution principle, visually showing quality and comprehensive product capability.
+
+4. **Analyze Data**: Calculates common process indicators such as Ca, Cp, and CpK, mean value, standard value, data count, defective count, and its percentage.
+
+5. **Detailed Data**: Click "Detailed Data" to view specific data, shown below:
+
+- Data is grouped every 5 and shows the mean and R values for each group.
+
+6. **Toolbar Icons**:
+- Exit the SPC interface.
+- Export to Excel: Generates the SPC report of the current control item.
+- SPC Export Settings: Sets the attributes of elements to be exported.
+- Export Data to Excel: Exports all sample data set for output to Excel format for use by other software.
+- Export Data to TXT: Exports all sample data set for output to TXT format for use by other software.
+- SPC Display Settings: Sets the content and display digits of sample data.
+- Delete Control Items: Deletes the current SPC control item.
+- Customize Report: Exports selected data to a specified Excel template file.
+
+#### 10.2 Focus Height Measurement
+1. Click the menu "Tools" -> "Focus Height Measurement" to enter the focus height measurement window, shown below:
+2. Move the work platform to the reference plane and click "Focus on Reference Plane". The software will automatically focus and record the z-axis data of the reference plane.
+3. Move the work platform to the measurement plane and click "Focus on Measurement Plane". The software will automatically focus and display the z-axis data of the measurement plane and automatically calculate the height difference relative to the reference plane. Click "Add to List" to save the calculated height value in the list for comparison.
+
+#### 10.3 Probe Height Measurement
+When equipped with a contact probe, click this function to start the probe height measurement for high-precision contact height measurement. The operation process is similar to focus height measurement.
+
+#### 10.4 Panorama Scan
+The panorama scan function scans specified areas of the workpiece, and the software automatically stitches the images to obtain a complete or partial area image. Select two diagonal points of the area to be stitched, and the software will automatically scan and stitch the full image.
+
+#### 10.5 Automatic Contour Extraction
+The measurement software automatically extracts the contour of the workpiece, obtaining all points on the same contour to get the contour map of the workpiece. Click twice on the contour to set the start and end points. The software controls the platform to extract edge points along the fixed direction from the start point to the end point. Double-clicking on the contour will automatically extract all points on the contour. Successful extraction saves all edge points as a point cloud in the task list. 
+
+For example, the main window shows the image of a small gear part. Using the automatic contour extraction function, the right platform navigation area displays the contour drawing of the part.
+
+#### 10.6 Show Edge Map
+Displays the edge strength map obtained after edge scanning of the current image. The higher the edge strength, the more accurate the extraction. The following image shows the edge strength map of a precision part.
+
+1. **Using Equidistant Circles**:
+  Replace the Calib.data file in the root directory with one that matches the machine.
+
+2. **Parameter Settings**:
+
+3. **User Operation**:
+
+1) Get Image: Captures the current image area.
+2) Process: Processes the ring based on the parameter settings. After each successful process, capture the image again for further processing.
+3) Load Image: Imports an existing image.
+4) Save Image: Saves the processed image.
+5) Export Data: Saves the processed data to Excel.
+
+4. **Large Image Processing**:
+When the product exceeds a single view, use the "Panorama Scan" function to scan and save the image. Then import the image for equidistant processing.
+
+#### 10.7 Drawing Comparison
+Compares the measurement drawing of the workpiece with the original
+
+ drawing, calculating contour deviations and completing the contour comparison of the workpiece.
+
+- **Contour Deviation**: abs(max(abs(max inner deviation), abs(max outer deviation))) x 2.
+- **Maximum Deviation Pixel**: When the measurement drawing is aligned with the standard drawing, points on the measurement drawing with vertical distances exceeding the maximum deviation pixel are not calculated, excluding noise.
+
+#### 10.8 Sieve Calibration
+Clears all data in the sieve module and the main interface task list.
+- **Get Sampling Location**: Sets the sampling location for sieve detection. Calibration standards require two sampling locations. The software allows multiple locations, sequentially sampling horizontally and vertically.
+- **Delete Sampling Location**: Deletes the selected sampling location.
+- **Start Detection**: Detects based on the set sampling locations, horizontally and vertically for each location. The status bar shows detection progress. If mesh standard dimensions are set, the software calculates and summarizes sieve detection data.
+- **Stop Detection**: Terminates the sieve detection process.
+- **Data Statistics**: Calculates and summarizes detected sieve data. Displays average wire diameter, average mesh size deviation, and maximum mesh size deviation after setting the mesh standard dimensions.
+- **Export Data**: Exports sieve detection data to a preset Excel report. The default template is sieving.xlt.
+
+**Steps**:
+1. Focus the image clearly.
+2. Open the sieve function.
+3. Extract an element (e.g., line segment) at the sampling location.
+4. Click "Get Sampling Location". Up to 5 locations can be sampled.
+5. Enter mesh count, click start detection, and wait for successful detection.
+6. Click "Export Data", choose the output path, and open the output file.
+
+#### 10.9 Navigation Function
+Quickly locates by setting image areas, enabling the machine to move to preset image areas.
+
+**Setting Measurement Tasks via Navigation**:
+1. Open Vispec software, adjust the light source, and focus for clear imaging.
+2. Select the navigation option from the toolbar to open the navigation window.
+3. Move the platform to the top-left and bottom-right points of the scan area, set overlap pixel size (default is 60 pixels).
+4. Click "Start Scan". The machine automatically scans the selected area. Stop by clicking terminate scan, stop button, or emergency stop. The image displays upon completion.
+5. Double-click any point on the completed image to move the machine to that area, centering the point in the image area. Navigation enables quick movement to measurement areas.
+6. Save the completed image by clicking save image in the navigation interface, specifying the path. Reload the image for future use, but rescan if the workpiece position changes.
+
+#### 10.10 Task Tags
+1. **Enable Task Tag Function**: In system settings, check the task tag function. Enter a tag for the current task run when running the task, modifying the output data file name and real-time output name for each measurement round.
+2. **Associate Task Tag with Enter Key**: When the task tag function is enabled, a pop-up appears during task run. Check associate enter key to avoid manually clicking confirm.
+
+#### 10.11 Real-Time Output to Excel Supports File and Task Association
+In the Vispec real-time output to Excel function, the real-time output Excel document associates with the task. Running task A outputs data to Excel document A; running task B outputs to document B; reloading task A continues outputting to document A. 
+
+Select "Real-Time Output to Excel" in the "Additional Functions" menu. Click "Options" submenu to open the "Settings" form. Check "Associate with Task Name" and click confirm to save settings, enabling the described functionality.
+
+#### 10.12 Configurable Magnification Display
+Modify magnification in Vispecset, then open Vispec. Click "System Settings" in the "Settings" menu to open the "System Settings" form. 
+
+In "Magnification Display Mode", select the "Magnification" radio button. If the "Display Magnification" checkbox is unchecked, the magnification display on the main interface matches the configuration file. Right-click an element in the task list, select "Light Source Settings" in the pop-up menu. The "ZOOM value" options and values match the main interface.
+
+#### 10.13 Customizable Cross Cursor for Nearest Edge Point and Drawing Point
+Set length and line width in the cross cursor attributes in system settings. Set the cross cursor color in the color settings (default cursor length and line width are non-adjustable).
+
+### Chapter 11: Measurement Examples
+The main applications of image measuring instruments can be divided into reverse engineering and workpiece measurement. This chapter details the Vispec software (including VMQ software) operation process through practical measurement steps.
+
+#### 11.1 Mobile Phone Shell Reverse Engineering (Reverse Engineering)
+The VM series image measuring instruments facilitate reverse engineering to obtain geometric information of the workpiece, exporting to DXF files. Other CAD software can construct complete workpiece data. This example completes the reverse engineering task of a mobile phone shell.
+
+1. Turn on the power of the control cabinet and wait for the machine to complete self-check.
+2. Turn on the computer and double-click the Vispec software icon on the desktop.
+3. Place the workpiece on the measurement work platform.
+4. Turn on the lower light source and adjust the brightness to a suitable level.
+5. Reduce the lens magnification to the minimum.
+6. Move the XY platform to bring the mobile phone shell into the visible range.
+7. Move the Z-axis to focus clearly on the mobile phone shell. Use the autofocus function if necessary.
+8. For clear, large contours, use "Auto Contour Tracking" to automatically extract contour points.
+9. For small, regular contours, use extraction and drawing tools to extract elements.
+10. Use annotation tools to mark necessary data.
+11. Use construction tools to generate new elements from existing elements.
+12. Adjust the current coordinate system as needed using coordinate tools.
+13. After drawing all elements, use "Output DXF" to export the drawing to a DXF file.
+
+#### 11.2 PCB Inspection
+The VM series image measuring instruments enable efficient workpiece measurement. For batch detection, create a measurement task, then use it for fast automatic measurement. This example introduces creating and running a measurement task.
+
+**11.2.1 Create Measurement Task from Sample**
+1. Place a PCB on the measurement platform and secure it with clay.
+2. Move the PCB into the visible range using platform control buttons. Adjust Z-axis height and contour light intensity until the image is clear.
+3. Establish the workpiece coordinate system using the "Two Points to Determine X-axis" tool. Move the platform to the lower-left round hole of the PCB, extract the first circle using "Multi-segment Extraction Circle", move to the lower-right round hole, extract the second circle similarly. Select "Two Points to Determine X-axis", setting the first circle as the origin and the direction from the first to the second circle as the X-axis to establish the coordinate system.
+4. Measure necessary elements using measurement tools and annotate them.
+5. Adjust the measurement order in the "Element List" by changing the insertion point.
+6. Modify extraction information to adjust the element extraction process. Set elements as "manual elements" for manual extraction during task runs.
+7. Save the task by clicking "Save Task", specifying the path and file name for future use.
+
+**11.2.2 Automatic Measurement**
+1. Place another PCB of the same model on the measurement platform and secure it with clay.
+2. Click "Open Task" and select the task file created previously.
+3. Set the task loop run count as needed.
+4. Click "Run Task". If the first element is a coordinate system, the task runs automatically; otherwise, manually measure elements before the first coordinate system.
+5. Manually create the workpiece coordinate system if the first element is an extracted coordinate system. Use the same method as during task creation. Click the "Center of Two Circles to Determine Coordinate System" icon, move the platform to the lower-left round hole of the PCB, extract the first circle using "Overall Extraction Circle", move to the lower-right round hole, extract the second circle similarly. Right-click after extracting the second circle, the task starts running automatically, sequentially measuring elements in the task list.
+6. For manually extracted elements, the task pauses, waiting for user operation. Extract the element manually, then click "Run Task" to continue automatic running.
+
+#### 11.3 SPC Analysis
+1. Click the "SPC" icon on the main toolbar to open the SPC main interface.
+2. Click "Load Sample", select the Output directory, open the "2008-5-17" subdirectory, and select data files.
+3. Double-click the data item to control in the right data column to open the "Set Control Items" dialog box.
+4. Enter the standard value and tolerance range.
+5. Repeat steps 3-4 to add multiple control items.
+6. Switch to "Control Chart" to view various control charts.
+
+#### 11.4 VMQ Quick Matching Measurement
+VMQ is ideal for batch measurement of small parts such as mobile phone accessories, gears, springs, and screws, offering fast speed and simple operation. For complex workpieces, one click achieves quick measurement, greatly improving efficiency. This example measures several similarly shaped parts.
+
+1. Click the register pattern icon in the software main menu bar. A light blue box appears in the image area. Adjust the box size and position with the mouse.
+2. Adjust the blue box to enclose a closed contour. The box turns green upon successful pattern registration, displaying the pattern number. Registered patterns are shown in the pattern display area below.
+3. Extract or construct elements to measure on the registered pattern (similar to regular extraction). Click "Run" and set the maximum match count in the image matching position in task loop
+
+ settings (default is 12, set more than or equal to the number of parts to match).
+4. Run the task after setting the match count. The software matches workpieces based on the registered pattern contour and quickly measures the extracted elements. Save the matching task or set loop run count.
+5. The matching process during task run is shown below:
+6. If no suitable image is found, a "registration failed" prompt appears. Investigate the cause of failure, remove obstacles, and continue matching.
+
+### Chapter 12: Common Issues
+
+1. **Software Cannot Start**:
+  - Is the operating system Microsoft® Windows® XP or Windows® 7 with SP2 installed?
+  - Check if .NetFramework® 2.0 is installed since the software is built on the .Net® framework.
+  - Is the image card installed in the computer?
+  - Is the computer connected to the machine and is the machine powered on?
+
+2. **Software Prompts "Image Card Not Found" at Startup**:
+  - The image card is not installed. Insert the image card correctly into the computer's PCI slot.
+  - The image card driver is not installed or is damaged. Reinstall the driver.
+  - The image card and driver are incompatible. Install the correct driver.
+  - The image card is damaged.
+
+3. **Software Prompts "Application Failed to Start! TZTEK Image Measuring Instrument Initialization Failed" at Startup**:
+  - The USB cable is not connected or has poor contact.
+  - The VM image measuring instrument is not powered on, or is still in self-check.
+  - The VM image measuring instrument driver is not correctly installed or is damaged.
+  - The computer's USB port is damaged.
+
+4. **No Image Display**:
+  - Check if the software interface is set correctly. Ensure image acquisition is enabled, and the video image window is active.
+  - Ensure the video cable is securely connected.
+  - CCD fault.
+
+5. **Why is there a large difference between displayed data and actual size?**:
+  - Confirm the measurement units are consistent.
+  - Ensure the workpiece is securely fixed on the work platform and does not move during measurement.
+  - Ensure appropriate light source brightness. For outer contour dimensions, too bright light source results in smaller measurement data, and too dim light source results in larger data. The reverse is true for inner contour dimensions.
+
+6. **Why can't image measurement proceed?**:
+  - Ensure appropriate light source brightness.
+  - Ensure a clear image.
+
+### Chapter 13: Technical Support
+
+Address: 5 Peiyuan Road, Suzhou High-tech Zone, Science and Technology City, 215163
+Phone: 0512-62397401
+Fax: 0512-62397403
+Email: support@tztek.com
+Website: [http://www.tztek.com](http://www.tztek.com)
+
+### Addenda
+
+### Chapter 14: Software Function Description
+### Chapter 15: VMQ Usage Instructions
+### Chapter 16: Appendix
