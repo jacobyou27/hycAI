@@ -35,7 +35,9 @@ def get_embeddings(texts):
     return embedding_model.encode(texts, convert_to_tensor=True)
 
 # Load LLaMA 8B model for better performance
-model_id = "meta-llama/Meta-Llama-3-8B"
+#model_id = "meta-llama/Meta-Llama-3-8B"
+# Load distilgpt2 for very fast answers for testing
+model_id = "distilgpt2"
 tokenizer = AutoTokenizer.from_pretrained(model_id)
 model = AutoModelForCausalLM.from_pretrained(model_id, torch_dtype=torch.bfloat16, device_map="auto")
 
@@ -50,15 +52,21 @@ def retrieve_documents(query, index, document_chunks, k=5):
     return indices[0], [document_chunks[idx] for idx in indices[0]]
 
 # Function to generate answers
-def generate_answer(query, retrieved_docs):
+def generate_answer(query, retrieved_docs, history):
     # Limit the context length to avoid issues with long sequences
-    context = "\n\n".join(retrieved_docs[:3])  # Separating chunks more clearly
-    input_text = f"""You are an AI assistant that helps with software and hardware issues. 
+    context = "\n\n".join(retrieved_docs[:3])  
+    history_text = "\n".join(history)
+    input_text = f"""You are an AI assistant that helps with software and hardware issues.
 You will be given document(s) to give you knowledge of the task. Answer the question as precisely as possible.
 Use your own words. Do not hallucinate or give fake information. Do not give unnecessary information. Do not repeat yourself.
 Be concise.
 Here are the document(s) to help you understand: {context}
+
+Conversation history:
+{history_text}
+
 \n\nQuestion: {query}\n\nAnswer:"""
+
     inputs = tokenizer(input_text, return_tensors="pt").to(model.device)
 
     outputs = model.generate(
@@ -116,28 +124,28 @@ def main():
     print("Creating FAISS index...")
     index = faiss.IndexFlatL2(document_embeddings.shape[1])
     index.add(document_embeddings)
+    
+    conversation_history = []
 
-    queries = [
-        "What should I do if the instrument fails to power on?",
-        "What steps should be taken if the measurement results are inconsistent?",
-        "How can I perform a software update on the TZTEK VM series instrument?",
-        "What should be done if the instrument's software crashes during operation?",
-        "How do I clean and maintain the lenses of the TZTEK VM series instrument?",
-        "What steps should be taken if the instrument is not responding to commands?",
-        "How do I reset the TZTEK VM series instrument to its factory settings?"
-    ]
-
-    for query in queries:
-        print(f"\nProcessing query: {query}")
-        indices, retrieved_docs = retrieve_documents(query, index, document_chunks)
+    while True:
+        # Prompt user for a question
+        user_question = input("\nEnter your question (or 'exit' to quit): ").strip()
+        
+        if user_question.lower() == 'exit':
+            break
+        
+        print(f"\nProcessing query: {user_question}")
+        indices, retrieved_docs = retrieve_documents(user_question, index, document_chunks)
         print("Generating answer...")
-        answer = generate_answer(query, retrieved_docs)
-        #location_idx, location_doc = find_answer_location(answer, retrieved_docs)
+        answer = generate_answer(user_question, retrieved_docs, conversation_history)
+        location_idx, location_doc = find_answer_location(answer, retrieved_docs)
+        
+        conversation_history.append(f"User: {user_question}")
+        conversation_history.append(f"AI: {answer}")
 
-        print(f"Query: {query}")
+        print(f"Query: {user_question}")
         print("Answer:", answer)
-        #print("Location Index:", indices[location_idx])
-        #print("Document with Answer:", location_doc)
+        print("Document with Answer:", location_doc)
         print("\n" + "="*80 + "\n")
     
     end_time = time.time()
