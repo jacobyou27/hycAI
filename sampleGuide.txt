@@ -1,0 +1,91 @@
+Python is an interpreted, high-level, general-purpose programming language. Created by Guido van Rossum and first released in 1991, Python's design philosophy emphasizes code readability with its notable use of significant whitespace.
+
+Python is dynamically typed and garbage-collected. It supports multiple programming paradigms, including structured (particularly, procedural), object-oriented, and functional programming. Python is often described as a "batteries included" language due to its comprehensive standard library.
+
+The Python Package Index (PyPI) is a repository of software for the Python programming language. PyPI helps you find and install software developed and shared by the Python community.
+
+# Variables and Data Types
+Python variables do not need explicit declaration to reserve memory space. The declaration happens automatically when a value is assigned to a variable. The equal sign (=) is used to assign values to variables. The operand to the left of the = operator is the name of the variable, and the operand to the right is the value stored in the variable.
+
+For example:
+x = 5
+y = "John"
+
+Python supports several data types, including integers, floating-point numbers, strings, lists, tuples, and dictionaries.
+
+# Control Flow
+Python supports the usual logical conditions from mathematics:
+- Equals: a == b
+- Not Equals: a != b
+- Less than: a < b
+- Less than or equal to: a <= b
+- Greater than: a > b
+- Greater than or equal to: a >= b
+
+These conditions can be used in several ways, most commonly in "if statements" and loops.
+
+# Functions
+A function is a block of code which only runs when it is called. You can pass data, known as parameters, into a function. A function can return data as a result.
+
+In Python, a function is defined using the `def` keyword:
+def my_function():
+    print("Hello from a function")
+
+# Classes and Objects
+Python is an object-oriented programming language. Almost everything in Python is an object, with its properties and methods.
+
+A class is like an object constructor, or a "blueprint" for creating objects.
+
+To create a class, use the `class` keyword:
+class MyClass:
+    x = 5
+
+# Inheritance
+Inheritance allows us to define a class that inherits all the methods and properties from another class.
+
+Parent class is the class being inherited from, also called base class. Child class is the class that inherits from another class, also called derived class.
+
+To create a child class, use the `class` keyword and pass the parent class name in parentheses:
+class ChildClass(ParentClass):
+    pass
+
+# File Handling
+Python has several functions for creating, reading, updating, and deleting files.
+
+The key function for working with files in Python is the `open()` function.
+
+The `open()` function takes two parameters; filename, and mode.
+
+There are four different methods (modes) for opening a file:
+- "r" - Read - Default value. Opens a file for reading, error if the file does not exist
+- "a" - Append - Opens a file for appending, creates the file if it does not exist
+- "w" - Write - Opens a file for writing, creates the file if it does not exist
+- "x" - Create - Creates the specified file, returns an error if the file exists
+
+In addition, you can specify if the file should be handled as binary or text mode:
+- "t" - Text - Default value. Text mode
+- "b" - Binary - Binary mode (e.g. images)
+
+# Exception Handling
+When an error occurs, or exception as we call it, Python will normally stop and generate an error message.
+
+These exceptions can be handled using the `try` statement:
+try:
+    print(x)
+except:
+    print("An exception occurred")
+
+# Libraries and Modules
+A module is a file containing Python code. A library is a collection of modules.
+
+To create a module, simply save the code you want in a file with the .py extension. 
+
+Modules can define functions, classes, and variables, and can also include runnable code.
+
+To use the module, use the `import` statement:
+import mymodule
+
+# Conclusion
+Python is a versatile and powerful programming language that is easy to learn and fun to use. Its readability and simplicity make it an excellent choice for both beginners and experienced programmers.
+
+With its extensive libraries and active community, Python continues to grow and evolve, offering new opportunities and capabilities for software development.

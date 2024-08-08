@@ -1,11 +1,15 @@
 import json
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
-from sentence_transformers import SentenceTransformer
+from sentence_transformers import SentenceTransformer, util
 import faiss
-from sklearn.metrics.pairwise import cosine_similarity
 from PyPDF2 import PdfReader
 import time
+import nltk
+from nltk.tokenize import sent_tokenize
+
+# Download NLTK data
+nltk.download('punkt')
 
 # Extract text from PDF
 def extract_text_from_pdf(pdf_path):
@@ -21,23 +25,43 @@ def extract_text_from_txt(txt_path):
         text = file.read()
     return text
 
-# Prepare document chunks from the dataset
-def prepare_document_chunks_from_text(text, chunk_size=100):
-    words = text.split()
-    chunks = [' '.join(words[i:i+chunk_size]) for i in range(0, len(words), chunk_size)]
+# Prepare document chunks using sliding window approach
+def prepare_document_chunks_from_text(text, chunk_size=100, overlap=20):
+    sentences = sent_tokenize(text)
+    chunks = []
+    current_chunk = []
+    current_length = 0
+
+    for sentence in sentences:
+        sentence_length = len(sentence.split())
+        if current_length + sentence_length <= chunk_size:
+            current_chunk.append(sentence)
+            current_length += sentence_length
+        else:
+            chunks.append(' '.join(current_chunk))
+            current_chunk = current_chunk[-overlap:]  # Preserve overlap sentences
+            current_chunk.append(sentence)
+            current_length = sum(len(sent.split()) for sent in current_chunk)
+
+    if current_chunk:
+        chunks.append(' '.join(current_chunk))
+
     return chunks
 
 # Load the embedding model
 embedding_model = SentenceTransformer('all-MiniLM-L6-v2')
 
-# Function to create embeddings
-def get_embeddings(texts):
-    return embedding_model.encode(texts, convert_to_tensor=True)
+# Function to create embeddings in batches
+def get_embeddings(texts, batch_size=32):
+    embeddings = []
+    for i in range(0, len(texts), batch_size):
+        batch = texts[i:i+batch_size]
+        batch_embeddings = embedding_model.encode(batch, convert_to_tensor=True, device='cuda')
+        embeddings.append(batch_embeddings)
+    return torch.cat(embeddings)
 
-# Load LLaMA 8B model for better performance
-#model_id = "meta-llama/Meta-Llama-3-8B"
-# Load distilgpt2 for very fast answers for testing
-model_id = "distilgpt2"
+# Load LLaMA 3 8B Instruct model for better performance
+model_id = "meta-llama/Meta-Llama-3-8B-Instruct"
 tokenizer = AutoTokenizer.from_pretrained(model_id)
 model = AutoModelForCausalLM.from_pretrained(model_id, torch_dtype=torch.bfloat16, device_map="auto")
 
@@ -45,16 +69,19 @@ model = AutoModelForCausalLM.from_pretrained(model_id, torch_dtype=torch.bfloat1
 if tokenizer.pad_token_id is None:
     tokenizer.pad_token_id = tokenizer.eos_token_id
 
-# Function to retrieve documents
-def retrieve_documents(query, index, document_chunks, k=5):
-    query_embedding = get_embeddings([query]).cpu().numpy()
-    distances, indices = index.search(query_embedding, k)
-    return indices[0], [document_chunks[idx] for idx in indices[0]]
+# Function to retrieve documents using semantic search
+def retrieve_documents(query, document_embeddings, document_chunks, k=5):
+    query_embedding = embedding_model.encode([query], convert_to_tensor=True, device='cuda')
+    cos_scores = util.pytorch_cos_sim(query_embedding, document_embeddings)[0]
+    top_results = torch.topk(cos_scores, k)
+
+    indices = top_results[1].cpu().numpy()
+    return indices, [document_chunks[idx] for idx in indices]
 
 # Function to generate answers
 def generate_answer(query, retrieved_docs, history):
     # Limit the context length to avoid issues with long sequences
-    context = "\n\n".join(retrieved_docs[:3])  
+    context = "\n\n".join(retrieved_docs[:3])
     history_text = "\n".join(history)
     input_text = f"""You are an AI assistant that helps with software and hardware issues.
 You will be given document(s) to give you knowledge of the task. Answer the question as precisely as possible.
@@ -82,29 +109,12 @@ Conversation history:
     response = outputs[0][inputs["input_ids"].shape[-1]:]
     return tokenizer.decode(response, skip_special_tokens=True)
 
-# Function to find and highlight the exact location of the answer
-def find_answer_location(answer, retrieved_docs):
-    answer_embedding = get_embeddings([answer]).cpu().numpy()
-    max_similarity = 0
-    best_match = None
-    best_match_idx = -1
-
-    for idx, doc in enumerate(retrieved_docs):
-        doc_embedding = get_embeddings([doc]).cpu().numpy()
-        similarity = cosine_similarity(answer_embedding, doc_embedding).flatten()[0]
-        if similarity > max_similarity:
-            max_similarity = similarity
-            best_match = doc
-            best_match_idx = idx
-
-    return best_match_idx, best_match
-
 # Main function
 def main():
     start_time = time.time()
     
     # Choose between PDF or TXT
-    file_path = r'Manual.txt'
+    file_path = r'sampleGuide.txt'
     
     if file_path.lower().endswith('.pdf'):
         print(f"Extracting text from PDF: {file_path}")
@@ -119,12 +129,8 @@ def main():
     document_chunks = prepare_document_chunks_from_text(text)
     
     print("Generating embeddings for document chunks...")
-    document_embeddings = get_embeddings(document_chunks).cpu().numpy()
-    
-    print("Creating FAISS index...")
-    index = faiss.IndexFlatL2(document_embeddings.shape[1])
-    index.add(document_embeddings)
-    
+    document_embeddings = get_embeddings(document_chunks).to('cuda')
+
     conversation_history = []
 
     while True:
@@ -135,17 +141,16 @@ def main():
             break
         
         print(f"\nProcessing query: {user_question}")
-        indices, retrieved_docs = retrieve_documents(user_question, index, document_chunks)
+        indices, retrieved_docs = retrieve_documents(user_question, document_embeddings, document_chunks)
         print("Generating answer...")
         answer = generate_answer(user_question, retrieved_docs, conversation_history)
-        location_idx, location_doc = find_answer_location(answer, retrieved_docs)
         
         conversation_history.append(f"User: {user_question}")
         conversation_history.append(f"AI: {answer}")
 
         print(f"Query: {user_question}")
         print("Answer:", answer)
-        print("Document with Answer:", location_doc)
+        print("Document Chunk:", retrieved_docs[0])
         print("\n" + "="*80 + "\n")
     
     end_time = time.time()
