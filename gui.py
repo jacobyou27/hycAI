@@ -51,9 +51,14 @@ class ChatBotGUI(QWidget):
         user_text = self.user_input.text().strip() 
         if user_text:
             self.display_message(user_text, user=True)
-            ai_response = f"You said {user_text}"
+            if user_text == "scroll":
+                    self.scroll_to_word("This manual")
+                    ai_response = "scrolled"
+            else:
+                ai_response = f"You said {user_text}"
             self.display_message(ai_response, user=False)
             self.user_input.clear()
+            
 
     def display_message(self, message, user=True):
         cursor = self.chat_history.textCursor()
@@ -74,6 +79,20 @@ class ChatBotGUI(QWidget):
         self.chat_history.append(f"{prefix}{message}")
         self.chat_history.append("")
         self.chat_history.setAlignment(Qt.AlignLeft)  #alignment for next message
+
+    def scroll_to_word(self, str):
+        cursor = self.text_display.textCursor()
+        text = self.text_display.toPlainText()
+        # Find the first occurrence of the string
+        index = text.find(str)
+        if index != -1:
+            cursor.setPosition(index)
+            self.text_display.setTextCursor(cursor)
+            self.text_display.ensureCursorVisible()
+            # Move the cursor to the beginning of the line
+            cursor.movePosition(QTextCursor.StartOfLine)
+            self.text_display.setTextCursor(cursor)
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
