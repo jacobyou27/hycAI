@@ -1,0 +1,10 @@
+Python is dynamically typed and garbage-collected. It supports multiple programming paradigms, including structured (particularly, procedural), object-oriented, and functional programming. Python is often described as a "batteries included" language due to its comprehensive standard library.
+
+The Python Package Index (PyPI) is a repository of software for the Python programming language. PyPI helps you find and install software developed and shared by the Python community.
+
+# Variables and Data Types
+Python variables do not need explicit declaration to reserve memory space. The declaration happens automatically when a value is assigned to a variable. The equal sign (=) is used to assign values to variables. The operand to the left of the = operator is the name of the variable, and the operand to the right is the value stored in the variable.
+
+For example:
+x = 5
+y = "John"
