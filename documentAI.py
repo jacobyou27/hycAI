@@ -216,16 +216,27 @@ class ICTAssistant(QWidget):
         self.chat_history.append("")
         self.chat_history.setAlignment(Qt.AlignLeft)  # Reset alignment for next message
 
-    def scroll_to_text(self, text):
+
+      #scrolls to where the string shows up first
+    def scroll_to_word(self, str):
         cursor = self.text_display.textCursor()
-        doc_text = self.text_display.toPlainText()
-        index = doc_text.find(text)
+        text = self.text_display.toPlainText()
+
+        # find string
+        index = text.find(str)
         if index != -1:
             cursor.setPosition(index)
             self.text_display.setTextCursor(cursor)
-            self.text_display.ensureCursorVisible()
+
             cursor.movePosition(QTextCursor.StartOfLine)
             self.text_display.setTextCursor(cursor)
+            
+            block_number = cursor.blockNumber()
+            scrollbar = self.text_display.verticalScrollBar()
+            cursor.movePosition(QTextCursor.StartOfBlock)
+            block_top = self.text_display.cursorRect(cursor).top()
+            scrollbar.setValue(scrollbar.value() + block_top - self.text_display.viewport().rect().top())
+            self.text_display.ensureCursorVisible()
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

@@ -107,8 +107,8 @@ class ICTAssistant(QWidget):
             #bot response created here
 
             self.chat_history.setAlignment(Qt.AlignRight)
-            if message == "test scroll":
-                self.scroll_to_word("This manual")
+            if message == "scroll":
+                self.scroll_to_word("Due to the large field-of-view lens used in VMQ")
                 response = "Scrolled"
             elif message == "quit" or message == "exit":
                 sys.exit(app.exec_())
@@ -131,19 +131,28 @@ class ICTAssistant(QWidget):
         playsound("temp.mp3")
         os.remove("temp.mp3")
 
-    #scrolls to where the string shows up first
     def scroll_to_word(self, str):
         cursor = self.text_display.textCursor()
         text = self.text_display.toPlainText()
+
+        # find string
         index = text.find(str)
         if index != -1:
             cursor.setPosition(index)
             self.text_display.setTextCursor(cursor)
-            self.text_display.ensureCursorVisible()
+
             cursor.movePosition(QTextCursor.StartOfLine)
             self.text_display.setTextCursor(cursor)
+            
+            block_number = cursor.blockNumber()
+            scrollbar = self.text_display.verticalScrollBar()
+            cursor.movePosition(QTextCursor.StartOfBlock)
+            block_top = self.text_display.cursorRect(cursor).top()
+            scrollbar.setValue(scrollbar.value() + block_top - self.text_display.viewport().rect().top())
+            self.text_display.ensureCursorVisible()
 
-        
+
+    
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     gui = ICTAssistant()
