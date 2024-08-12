@@ -28,7 +28,7 @@ class ICTAssistant(QWidget):
         #left side: txt file display
         self.text_display = QTextEdit()
         self.text_display.setReadOnly(True)
-        with open("Manual.txt", "r") as file: 
+        with open("manual.txt", "r", encoding="utf8") as file: 
             self.text_display.setPlainText(file.read())
         left_layout.addWidget(self.text_display)
 

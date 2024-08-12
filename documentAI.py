@@ -8,7 +8,11 @@ from nltk.tokenize import sent_tokenize
 from PyQt5.QtWidgets import (QApplication, QWidget, QVBoxLayout, QHBoxLayout, 
                              QTextEdit, QLineEdit, QPushButton, QLabel)
 from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QTextCursor, QTextCharFormat
+from PyQt5.QtGui import QTextCursor, QTextCharFormat, QIcon
+import speech_recognition as sr
+from gtts import gTTS
+import os
+from playsound import playsound
 
 # Download NLTK data
 nltk.download('punkt')
@@ -82,7 +86,6 @@ def retrieve_documents(query, document_embeddings, document_chunks, k=5):
 
 # Function to generate answers
 def generate_answer(query, retrieved_docs, history):
-    # Limit the context length to avoid issues with long sequences
     context = "\n\n".join(retrieved_docs[:3])
     history_text = "\n".join(history)
     input_text = f"""You are an AI assistant that helps with software and hardware issues.
@@ -101,7 +104,7 @@ Conversation history:
     outputs = model.generate(
         inputs["input_ids"],
         attention_mask=inputs["attention_mask"],
-        max_new_tokens=200,  # Adjust the number of tokens as necessary
+        max_new_tokens=200,
         eos_token_id=tokenizer.eos_token_id,
         pad_token_id=tokenizer.pad_token_id,
         do_sample=True,
@@ -111,7 +114,7 @@ Conversation history:
     response = outputs[0][inputs["input_ids"].shape[-1]:]
     return tokenizer.decode(response, skip_special_tokens=True)
 
-class ChatBotGUI(QWidget):
+class ICTAssistant(QWidget):
     def __init__(self):
         super().__init__()
         self.initUI()
@@ -177,8 +180,17 @@ class ChatBotGUI(QWidget):
             self.user_input.clear()
             self.thinking_label.setText("Thinking...")
             QApplication.processEvents()
+            
             indices, retrieved_docs = retrieve_documents(user_text, self.document_embeddings, self.document_chunks)
-            ai_response = generate_answer(user_text, retrieved_docs, self.conversation_history)
+            
+            if retrieved_docs:
+                ai_response = generate_answer(user_text, retrieved_docs, self.conversation_history)
+                # Scroll to the relevant part of the document
+                self.scroll_to_text(retrieved_docs[0])
+            else:
+                ai_response = generate_answer(user_text, [], self.conversation_history)
+                ai_response += " (Note: This response is generated and not based on the document.)"
+
             self.display_message(ai_response, user=False)
             self.conversation_history.append(f"User: {user_text}")
             self.conversation_history.append(f"AI: {ai_response}")
@@ -204,8 +216,19 @@ class ChatBotGUI(QWidget):
         self.chat_history.append("")
         self.chat_history.setAlignment(Qt.AlignLeft)  # Reset alignment for next message
 
+    def scroll_to_text(self, text):
+        cursor = self.text_display.textCursor()
+        doc_text = self.text_display.toPlainText()
+        index = doc_text.find(text)
+        if index != -1:
+            cursor.setPosition(index)
+            self.text_display.setTextCursor(cursor)
+            self.text_display.ensureCursorVisible()
+            cursor.movePosition(QTextCursor.StartOfLine)
+            self.text_display.setTextCursor(cursor)
+
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    chat_bot_gui = ChatBotGUI()
-    chat_bot_gui.show()
+    gui = ICTAssistant()
+    gui.show()
     sys.exit(app.exec_())
