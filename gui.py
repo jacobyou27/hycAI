@@ -7,6 +7,9 @@ import speech_recognition as sr
 from gtts import gTTS
 import os
 from playsound import playsound
+import random
+import nltk
+from nltk.tokenize import sent_tokenize
 
 
 class ICTAssistant(QWidget):
@@ -158,3 +161,59 @@ if __name__ == '__main__':
     gui = ICTAssistant()
     gui.show()
     sys.exit(app.exec_())
+
+
+# Download NLTK data
+nltk.download('punkt')
+
+# Function to extract text from a TXT file
+def extract_text_from_txt(txt_path):
+    with open(txt_path, 'r', encoding='utf-8') as file:
+        text = file.read()
+    return text
+
+# Function to prepare document chunks
+def prepare_document_chunks_from_text(text, chunk_size=100, overlap=20):
+    sentences = sent_tokenize(text)
+    chunks = []
+    current_chunk = []
+    current_length = 0
+
+    for sentence in sentences:
+        sentence_length = len(sentence.split())
+        if current_length + sentence_length <= chunk_size:
+            current_chunk.append(sentence)
+            current_length += sentence_length
+        else:
+            chunks.append(' '.join(current_chunk))
+            current_chunk = current_chunk[-overlap:]  # Preserve overlap sentences
+            current_chunk.append(sentence)
+            current_length = sum(len(sent.split()) for sent in current_chunk)
+
+    if current_chunk:
+        chunks.append(' '.join(current_chunk))
+
+    return chunks
+
+# Function to get a random document chunk
+def get_random_chunk(document_chunks):
+    if document_chunks:
+        return random.choice(document_chunks)
+    else:
+        return "No document chunks available."
+
+# Main function to load the manual, chunk it, and get a random chunk
+def main():
+    # Load the text from manual.txt
+    file_path = 'manual.txt'
+    text = extract_text_from_txt(file_path)
+    
+    # Prepare the document chunks
+    document_chunks = prepare_document_chunks_from_text(text, chunk_size=100, overlap=20)
+    
+    # Get a random chunk
+    random_chunk = get_random_chunk(document_chunks)
+    print("Document Chunk:\n", random_chunk)
+
+if __name__ == "__main__":
+    main()
