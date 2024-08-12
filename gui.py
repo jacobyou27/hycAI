@@ -11,6 +11,8 @@ import random
 import nltk
 from nltk.tokenize import sent_tokenize
 
+nltk.download('punkt_tab')
+
 
 class ICTAssistant(QWidget):
 
@@ -19,7 +21,7 @@ class ICTAssistant(QWidget):
         self.initUI()
         self.recognizer = sr.Recognizer()
         self.listening = False
-
+    
     def initUI(self):
         self.setWindowTitle('ICT Assistant')
 
@@ -98,32 +100,6 @@ class ICTAssistant(QWidget):
 
         self.toggle_listening()
 
-    #messages are processed here
-    def process_message(self):
-        message = self.input_line.text()
-
-        if message:
-            self.chat_history.append(f"You: {message}")
-            self.chat_history.setAlignment(Qt.AlignLeft)
-            self.input_line.clear()
-
-            #bot response created here
-
-            self.chat_history.setAlignment(Qt.AlignRight)
-            if message == "scroll":
-                self.scroll_to_word("Due to the large field-of-view lens used in VMQ")
-                response = "Scrolled"
-            elif message == "quit" or message == "exit":
-                sys.exit(app.exec_())
-            else:
-                response = "You said " + message
-
-            self.chat_history.append(f"Bot: {response}")
-            self.chat_history.setAlignment(Qt.AlignLeft)
-            self.chat_history.append("")
-
-
-
     #right click on message to play message
     def read_aloud(self, position):
         cursor = self.chat_history.cursorForPosition(position)
@@ -134,13 +110,25 @@ class ICTAssistant(QWidget):
         playsound("temp.mp3")
         os.remove("temp.mp3")
 
+    def find_sub_list(self, sl,l):
+        sll=len(sl)
+        for ind in (i for i,e in enumerate(l) if e==sl[0]):
+            if l[ind:ind+sll]==sl:
+                return ind
     def scroll_to_word(self, str):
+        
         cursor = self.text_display.textCursor()
         text = self.text_display.toPlainText()
 
-        # find string
+        split_text = self.text_display.toPlainText().split()
+        text = ''.join(split_text)
+        split_str = str.split()
+        str = ''.join(split_str)
+
         index = text.find(str)
+
         if index != -1:
+            index += self.find_sub_list(split_str,split_text) - len(split_str)
             cursor.setPosition(index)
             self.text_display.setTextCursor(cursor)
 
@@ -155,65 +143,80 @@ class ICTAssistant(QWidget):
             self.text_display.ensureCursorVisible()
 
 
-    
-if __name__ == '__main__':
+    # Function to extract text from a TXT file
+    def extract_text_from_txt(self, txt_path):
+        with open(txt_path, 'r', encoding='utf-8') as file:
+            text = file.read()
+        return text
+
+    # Function to prepare document chunks
+    def prepare_document_chunks_from_text(self, text, chunk_size=100, overlap=20):
+        sentences = sent_tokenize(text)
+        chunks = []
+        current_chunk = []
+        current_length = 0
+
+        for sentence in sentences:
+            sentence_length = len(sentence.split())
+            if current_length + sentence_length <= chunk_size:
+                current_chunk.append(sentence)
+                current_length += sentence_length
+            else:
+                chunks.append(' '.join(current_chunk))
+                current_chunk = current_chunk[-overlap:]  # Preserve overlap sentences
+                current_chunk.append(sentence)
+                current_length = sum(len(sent.split()) for sent in current_chunk)
+
+        if current_chunk:
+            chunks.append(' '.join(current_chunk))
+
+        return chunks
+
+    # Function to get a random document chunk
+    def get_random_chunk(self, document_chunks):
+        if document_chunks:
+            return random.choice(document_chunks)
+        else:
+            return "No document chunks available."
+
+    #messages are processed here
+    def process_message(self):
+        message = self.input_line.text()
+
+        if message:
+            self.chat_history.append(f"You: {message}")
+            self.chat_history.setAlignment(Qt.AlignLeft)
+            self.input_line.clear()
+
+            #bot response created here
+
+            self.chat_history.setAlignment(Qt.AlignRight)
+            if message == "scroll":
+                    # Load the text from manual.txt
+                file_path = 'manual.txt'
+                text = self.extract_text_from_txt(file_path)
+                
+                # Prepare the document chunks
+                document_chunks = self.prepare_document_chunks_from_text(text, chunk_size=100, overlap=20)
+                
+                # Get a random chunk
+                random_chunk = self.get_random_chunk(document_chunks)
+                print(random_chunk)
+                
+                self.scroll_to_word(random_chunk)
+                response = "Scrolled"
+            elif message == "quit" or message == "exit":
+                sys.exit(app.exec_())
+            else:
+                response = "You said " + message
+
+            self.chat_history.append(f"Bot: {response}")
+            self.chat_history.setAlignment(Qt.AlignLeft)
+            self.chat_history.append("")
+
+
+if __name__ == "__main__":
     app = QApplication(sys.argv)
     gui = ICTAssistant()
     gui.show()
     sys.exit(app.exec_())
-
-
-# Download NLTK data
-nltk.download('punkt')
-
-# Function to extract text from a TXT file
-def extract_text_from_txt(txt_path):
-    with open(txt_path, 'r', encoding='utf-8') as file:
-        text = file.read()
-    return text
-
-# Function to prepare document chunks
-def prepare_document_chunks_from_text(text, chunk_size=100, overlap=20):
-    sentences = sent_tokenize(text)
-    chunks = []
-    current_chunk = []
-    current_length = 0
-
-    for sentence in sentences:
-        sentence_length = len(sentence.split())
-        if current_length + sentence_length <= chunk_size:
-            current_chunk.append(sentence)
-            current_length += sentence_length
-        else:
-            chunks.append(' '.join(current_chunk))
-            current_chunk = current_chunk[-overlap:]  # Preserve overlap sentences
-            current_chunk.append(sentence)
-            current_length = sum(len(sent.split()) for sent in current_chunk)
-
-    if current_chunk:
-        chunks.append(' '.join(current_chunk))
-
-    return chunks
-
-# Function to get a random document chunk
-def get_random_chunk(document_chunks):
-    if document_chunks:
-        return random.choice(document_chunks)
-    else:
-        return "No document chunks available."
-
-# Main function to load the manual, chunk it, and get a random chunk
-def main():
-    # Load the text from manual.txt
-    file_path = 'manual.txt'
-    text = extract_text_from_txt(file_path)
-    
-    # Prepare the document chunks
-    document_chunks = prepare_document_chunks_from_text(text, chunk_size=100, overlap=20)
-    
-    # Get a random chunk
-    random_chunk = get_random_chunk(document_chunks)
-    print("Document Chunk:\n", random_chunk)
-
-if __name__ == "__main__":
-    main()
